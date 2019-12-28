@@ -21,7 +21,7 @@ public class MainGUI {
         stage.setTitle("Aiming Arrows");
 
         Label topLabel = new Label("AIMING ARROWS");
-        topLabel.setPadding(new Insets(20, 0, 20, 0));
+        topLabel.setPadding(new Insets(10, 0, 10, 0));
         topLabel.setFont(Font.font("Cambria", 32));
 
         HBox topPane = new HBox();
@@ -29,22 +29,20 @@ public class MainGUI {
         topPane.setAlignment(Pos.CENTER);
         topPane.setBackground(new Background(new BackgroundFill(Color.rgb(10, 10, 20), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        ImageView saveGameImg = new ImageView(new Image(new FileInputStream("rsc/saveFile.png")));
-        Button saveFileButton = new Button("Zapisz", saveGameImg);
-        saveFileButton.setPrefWidth(100);
+        MenuButton saveFileButton = new MenuButton("save", 100, "rsc/saveFile.png");
         saveFileButton.setOnAction(value ->  {
             topLabel.setText("Save game");
         });
 
         ImageView loadFileImg = new ImageView(new Image(new FileInputStream("rsc/loadFile.png")));
-        Button openFileButton = new Button("Wczytaj", loadFileImg);
+        Button openFileButton = new Button("Load", loadFileImg);
         openFileButton.setPrefWidth(100);
         openFileButton.setOnAction(value ->  {
             topLabel.setText("Load game");
         });
 
         ImageView exitGameImg = new ImageView(new Image(new FileInputStream("rsc/exitGame.png")));
-        Button exitGameButton = new Button("Wyjście", exitGameImg);
+        Button exitGameButton = new Button("Exit", exitGameImg);
         exitGameButton.setPrefWidth(100);
         exitGameButton.setOnAction(value ->  {
             topLabel.setText("Exit game");
