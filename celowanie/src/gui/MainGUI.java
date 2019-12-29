@@ -29,15 +29,17 @@ public class MainGUI {
         topPane.setAlignment(Pos.CENTER);
         topPane.setBackground(new Background(new BackgroundFill(Color.rgb(10, 10, 20), CornerRadii.EMPTY, Insets.EMPTY)));
 
-        MenuButton saveFileButton = new MenuButton("save", 100, "rsc/saveFile.png");
+        /*MenuButton saveFileButton = new MenuButton("save", 100, "rsc/saveFile.png");
         saveFileButton.setOnAction(value ->  {
             topLabel.setText("Save game");
-        });
+        });*/
+        //to fix, button is empty after use of custem constructor
 
         ImageView loadFileImg = new ImageView(new Image(new FileInputStream("rsc/loadFile.png")));
         Button openFileButton = new Button("Load", loadFileImg);
         openFileButton.setPrefWidth(100);
         openFileButton.setOnAction(value ->  {
+            //gameController.load
             topLabel.setText("Load game");
         });
 
@@ -49,7 +51,7 @@ public class MainGUI {
         });
 
         VBox rightPane = new VBox();
-        rightPane.getChildren().addAll(openFileButton, saveFileButton, exitGameButton);
+        rightPane.getChildren().addAll(openFileButton, /*saveFileButton,*/ exitGameButton);
         rightPane.setSpacing(10);
         rightPane.setPadding(new Insets(0, 20, 0, 20));
         rightPane.setAlignment(Pos.TOP_CENTER);

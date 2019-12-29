@@ -13,7 +13,5 @@ public class MenuButton extends Button {
         ImageView img = new ImageView(new Image(new FileInputStream(imgPath)));
         Button button = new Button(label, img);
         button.setPrefWidth(width);
-
     }
-
 }
