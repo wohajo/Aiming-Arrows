@@ -1,0 +1,119 @@
+// ************** THIS IS FILE USED TO STORE IDEAS THAT CANNOT BE IMPLEMENTED YE(E)T ****************
+
+// enum for arrow states in which direction they are poiting, it propably will be used to change the look 
+// and maybe prevent from turning too much   
+// L = Left, U = Up, D = Down, R = Right, C = Center 
+
+enum ArrowState {
+LU
+LD
+LC
+UL
+UC
+UR
+RU
+RC
+RD
+DL
+DC
+DR 
+}
+
+Class Arrow extends Elements {
+	short int clickCounter = 0;
+}
+
+// addition
+// there are 2 tables: 
+// Array gameBoard <Elements> <- table on which player operates using arrows
+// Array solutionBoard <Cell> <- table to which the gameBoard Cells will be compared
+
+
+// following block of code is the logic of adding and substracting 1, happening after clicking the arrow
+// clickCounter is used to check which direction the arrow is pointing to 
+// in case of a corner arrow, 0 is straigth and 1 is either right or left depending on which side the arrow has a block that does completly nothing
+// in case of a middle arrow, 0 is left, 1 is straigth and 2 is right (perspective from behind the arrow)
+
+void arrowClick() {
+	if (Arrow.getCordY == 0) {
+
+		switch(Arrow.getCordX) {
+			case 0:
+				// TODO
+				// substract from previous clickCounter state 
+				cornerArrowCounterCheck(clickCounter); //returns int
+				// Arrow now changes its image
+				// Arrow now adds 1 to pointed Cells 
+
+			case 1:
+				middleArrowCounterCheck(clickCounter); //returns int
+			
+			case 2:
+				middleArrowCounterCheck(clickCounter); //returns int
+
+			case 3:
+				middleArrowCounterCheck(clickCounter); //returns int
+
+			case 4:
+				middleArrowCounterCheck(clickCounter); //returns int
+
+			case 5:
+				cornerArrowCounterCheck(clickCounter); //returns int
+
+		}
+	}
+	else if (Arrow.getCordY == 5) {
+		if (Arrow.getCordX == 0)
+		{}
+		if (Arrow.getCordX == 6)
+		{}
+	}
+	else if (Arrow.getCordX == 1) {
+		if (Arrow.getCordY == 0)
+		{}
+		if (Arrow.getCordY == 6)
+		{}
+	}
+	else if (Arrow.getCordX == 5) {
+		if (Arrow.getCordY == 0)
+		{}
+		if (Arrow.getCordY == 6)
+		{}
+	}
+}
+
+int cornerArrowCounterCheck(int clickCounter) {
+	if (clickCounter == 1)
+		return clickCounter = 0;
+	else 
+		return 1
+}
+
+int middleArrowCounterCheck(int clickCounter) {
+	if(clickCounter == 2)
+		return 0;
+	else if (clickCounter == 1)
+		return 2;
+	else if (clickCounter == 0)
+		return 1;
+}
+
+void middleLeftArrowSubstract() {
+
+}
+
+void middleUpArrowSubstract() {
+	
+}
+
+void middleRightArrowSubstract() {
+	
+}
+
+void middleDownArrowSubstract() {
+	
+}
+
+
+
+
