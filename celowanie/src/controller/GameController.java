@@ -1,4 +1,4 @@
-package gameLogic;
+package controller;
 
 public class GameController {
 }

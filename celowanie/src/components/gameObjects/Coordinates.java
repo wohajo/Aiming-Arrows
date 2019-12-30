@@ -1,4 +1,4 @@
-package gameLogic.objects;
+package components.gameObjects;
 
 public class Coordinates {
 

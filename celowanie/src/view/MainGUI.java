@@ -1,6 +1,5 @@
-package gui;
+package view;
 
-import gameLogic.GameStart;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -33,7 +32,7 @@ public class MainGUI {
         saveFileButton.setOnAction(value ->  {
             topLabel.setText("Save game");
         });*/
-        //to fix, button is empty after use of custem constructor
+        //to fix, button is empty after use of custom constructor
 
         ImageView loadFileImg = new ImageView(new Image(new FileInputStream("rsc/loadFile.png")));
         Button openFileButton = new Button("Load", loadFileImg);

@@ -1,6 +1,6 @@
-package gameLogic.objects;
+package components.gameObjects;
 
-import gameLogic.abstracts.Element;
+import components.abstracts.Element;
 
 public class Cell extends Element {
 

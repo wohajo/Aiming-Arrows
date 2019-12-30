@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLogic/GameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLogic/GameStart.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLogic/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLogic/abstracts/Element.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLogic/objects/Arrow.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLogic/objects/Cell.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gameLogic/objects/Coordinates.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MainGUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MenuButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/mainApp/Main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,12 +136,12 @@
       <Port>5050</Port>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="mainApp.Main" />
+      <option name="MAIN_CLASS_NAME" value="model.Main" />
       <module name="celowanie" />
       <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="mainApp.*" />
+          <option name="PATTERN" value=".*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -211,7 +219,9 @@
       <workItem from="1577469589880" duration="856000" />
       <workItem from="1577561087033" duration="532000" />
       <workItem from="1577561649965" duration="155000" />
-      <workItem from="1577630210911" duration="2272000" />
+      <workItem from="1577630210911" duration="3609000" />
+      <workItem from="1577718440156" duration="70000" />
+      <workItem from="1577718634021" duration="761000" />
     </task>
     <servers />
   </component>
@@ -223,14 +233,18 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="836" y="277" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577396314901">
+    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577719049148">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="836" y="277" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577396314901" />
-    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1577458441291">
+    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577719049148" />
+    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1577632760880">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1577458441291" />
+    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1577632760880" />
+    <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577719002689">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577719002689" />
     <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577457992593">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -239,22 +253,22 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1577561721858" />
-    <state width="1878" height="112" key="GridCell.Tab.0.bottom" timestamp="1577632142491">
+    <state width="918" height="112" key="GridCell.Tab.0.bottom" timestamp="1577719396802">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1577632142491" />
-    <state width="1878" height="112" key="GridCell.Tab.0.center" timestamp="1577632142490">
+    <state width="918" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1577719396802" />
+    <state width="918" height="112" key="GridCell.Tab.0.center" timestamp="1577719396802">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1577632142490" />
-    <state width="1878" height="112" key="GridCell.Tab.0.left" timestamp="1577632142489">
+    <state width="918" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1577719396802" />
+    <state width="918" height="112" key="GridCell.Tab.0.left" timestamp="1577719396801">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1577632142489" />
-    <state width="1878" height="112" key="GridCell.Tab.0.right" timestamp="1577632142490">
+    <state width="918" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1577719396801" />
+    <state width="918" height="112" key="GridCell.Tab.0.right" timestamp="1577719396802">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1577632142490" />
+    <state width="918" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1577719396802" />
     <state x="0" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1577396070979">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -263,9 +277,9 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1577455162504" />
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1577630214457">
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1577718635283">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577630214457" />
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577718635283" />
   </component>
 </project>

@@ -1,6 +1,6 @@
-package mainApp;
+package model;
 
-import gui.MainGUI;
+import view.MainGUI;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
