@@ -1,6 +1,8 @@
 package components.abstracts;
 
-public abstract class Element {
+import javafx.scene.control.Button;
+
+public abstract class Element extends Button {
 
 	int cordX;
 	int cordY;

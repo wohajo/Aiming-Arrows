@@ -1,0 +1,8 @@
+#menuButton {
+    -fx-font: 20px "Roboto";
+    -fx-background-color: #aaaaaa;
+}
+
+#menuButton:hover {
+    -fx-background-color: #ffffff;
+}
