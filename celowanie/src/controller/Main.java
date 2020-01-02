@@ -1,10 +1,6 @@
 package controller;
 
-import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import view.MainGUI;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -15,13 +11,8 @@ public class Main extends Application {
         try {
             stage.setTitle("Aiming Arrows");
             GameController gameController = new GameController();
-            MainGUI mainGUI = new MainGUI();
-            BorderPane borderPane = new BorderPane();
-
-            Scene myScene = new Scene(borderPane, 800, 600);
-
-            borderPane.setTop(null);
-            borderPane.setRight(null);
+            Scene myScene;
+            myScene = new Scene(gameController.getMainGUI(), 800, 600);
 
             stage.setScene(myScene);
             stage.show();

@@ -1,4 +1,4 @@
-package gui;
+package view;
 
 import javafx.scene.control.Button;
 import javafx.scene.image.*;
@@ -8,9 +8,8 @@ import java.io.FileNotFoundException;
 
 public class MenuButton extends Button {
 
-    public MenuButton(String label, int width, String imgPath) throws FileNotFoundException {
-        ImageView img = new ImageView(new Image(new FileInputStream(imgPath)));
-	super(label, img);
+    public MenuButton(String label, int width) throws FileNotFoundException {
+        super(label);
         this.setPrefWidth(width);
     }
 }
