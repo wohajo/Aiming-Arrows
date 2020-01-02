@@ -1,8 +1,6 @@
 package components.abstracts;
 
-import components.gameObjects.Coordinates;
-
-public class Element {
+public abstract class Element {
 
 	int cordX;
 	int cordY;
@@ -13,5 +11,13 @@ public class Element {
 
 	public int getCordY() {
 		return cordY;
+	};
+
+	public void setCordX(int cordX) {
+		this.cordX = cordX;
+	};
+
+	public void setCordY(int cordY) {
+		this.cordX = cordY;
 	};
 }

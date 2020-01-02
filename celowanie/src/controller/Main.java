@@ -2,6 +2,7 @@ package controller;
 
 import javafx.scene.Scene;
 import javafx.application.Application;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -13,7 +14,7 @@ public class Main extends Application {
             GameController gameController = new GameController();
             Scene myScene;
             myScene = new Scene(gameController.getMainGUI(), 800, 600);
-
+            myScene.setFill(Color.rgb(66,66,66));
             stage.setScene(myScene);
             stage.show();
         }

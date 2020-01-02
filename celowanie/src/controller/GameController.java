@@ -8,7 +8,7 @@ public class GameController {
     MainGUI mainGUI;
 
     public GameController() {
-
+        this.mainGUI = new MainGUI();
     }
 
     public MainGUI getMainGUI() {

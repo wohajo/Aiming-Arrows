@@ -6,6 +6,12 @@ public class Cell extends Element {
 
     int value;
 
+    public Cell(int cordX, int cordY, int value) {
+        this.value = value;
+        setCordX(cordX);
+        setCordY(cordY);
+    }
+
     public int getValue() {
         return value;
     }
@@ -13,9 +19,6 @@ public class Cell extends Element {
     public void setValue(int value) {
         this.value = value;
     }
-
-    public Cell(int value) {
-        this.value = value;
-    }
 }
+
 

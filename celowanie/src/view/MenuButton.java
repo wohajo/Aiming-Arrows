@@ -1,15 +1,15 @@
 package view;
 
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.image.*;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import javafx.scene.text.Font;
 
 public class MenuButton extends Button {
 
-    public MenuButton(String label, int width) throws FileNotFoundException {
+    public MenuButton(String label) {
         super(label);
-        this.setPrefWidth(width);
+        this.setPrefWidth(100);
+        this.setFont(Font.font("Roboto", 16));
+        this.setAlignment(Pos.CENTER);
     }
 }
