@@ -20,7 +20,8 @@ DR
 }
 
 Class Arrow extends Elements {
-	short int clickCounter = 0;
+
+	short int clickCounter = 0;	
 }
 
 // addition
@@ -113,7 +114,6 @@ void middleRightArrowSubstract() {
 void middleDownArrowSubstract() {
 	
 }
-
 
 
 

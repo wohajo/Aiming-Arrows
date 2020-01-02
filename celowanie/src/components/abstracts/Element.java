@@ -4,5 +4,14 @@ import components.gameObjects.Coordinates;
 
 public class Element {
 
-Coordinates coordinates;
+	int cordX;
+	int cordY;
+
+	public int getCordX() {
+		return cordX;
+	};
+
+	public int getCordY() {
+		return cordY;
+	};
 }
