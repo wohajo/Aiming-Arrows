@@ -15,6 +15,7 @@ public class Arrow extends Element {
 
 	public int getClickCounter() {
 		return clickCounter;
-	}	
-	
+	}
+
+
 }

@@ -10,6 +10,6 @@ public class GameGrid extends GridPane {
     }
 
     private void setupGameGrid(Element[][] Elements) {
-        for (int i = 0; i < E)
+        // for (int i = 0; i < E)
     }
 }

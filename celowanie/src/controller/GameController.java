@@ -14,7 +14,6 @@ public class GameController {
     public GameController() {
         this.mainGUI = new MainGUI();
     }
-
     public MainGUI getMainGUI() {
         return mainGUI;
     }
@@ -24,4 +23,5 @@ public class GameController {
     public ModelBoard getModelBoard() {
         return modelBoard;
     }
+
 }
