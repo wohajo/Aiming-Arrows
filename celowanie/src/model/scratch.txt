@@ -34,19 +34,22 @@ Class Arrow extends Elements {
 // clickCounter is used to check which direction the arrow is pointing to 
 // in case of a corner arrow, 0 is straight and 1 is either right or left depending on which side the arrow has a block that does completely nothing
 // in case of a middle arrow, 0 is left, 1 is straight and 2 is right (perspective from behind the arrow)
+// Cord X is as usual, Cord Y is upside down to ease the calculations
 
-void arrowClick() {
+
+
+void onArrowClick() {
 	if (Arrow.getCordY == 0) {
 
 		switch(Arrow.getCordX) {
-			case 0:
-				// TODO
-				// subtract from previous clickCounter state
-				cornerArrowCounterCheck(clickCounter); //returns int
-				// Arrow now changes its image
-				// Arrow now adds 1 to pointed Cells 
 
 			case 1:
+			    // TODO
+            	// subtract from previous clickCounter state
+            	// Arrow.getClickCounter
+            	//cornerArrowCounterCheck(clickCounter); //returns int
+            	// Arrow now changes its image
+            	// Arrow now adds 1 to pointed Cells
 				middleArrowCounterCheck(clickCounter); //returns int
 			
 			case 2:

@@ -3,9 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/abstracts/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/abstracts/Element.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/abstracts/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/abstracts/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ModelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/scratch.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/scratch.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,8 +67,8 @@
       <list>
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="CSS File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -98,7 +103,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../xsandos-master" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -225,7 +230,9 @@
       <workItem from="1577801517326" duration="549000" />
       <workItem from="1577803343500" duration="1584000" />
       <workItem from="1577964231960" duration="5774000" />
-      <workItem from="1577980012769" duration="2335000" />
+      <workItem from="1577980012769" duration="4935000" />
+      <workItem from="1577985987947" duration="2040000" />
+      <workItem from="1578006380604" duration="1597000" />
     </task>
     <servers />
   </component>

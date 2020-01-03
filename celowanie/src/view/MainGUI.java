@@ -26,14 +26,14 @@ public class MainGUI extends BorderPane {
         topPane.setBackground(new Background(new BackgroundFill(Color.rgb(10, 10, 20), CornerRadii.EMPTY, Insets.EMPTY)));
 
         // creating and aligning buttons for menu
-        MenuButton saveFileButton = new MenuButton("save");
+        MenuButton saveFileButton = new MenuButton("Save");
         saveFileButton.setOnAction(value -> {
-                    topLabel.setText("Save game");
+                    topLabel.setText("Saved game");
                 });
 
         MenuButton openFileButton = new MenuButton("Load");
         openFileButton.setOnAction(value ->  {
-            topLabel.setText("Load game");
+            topLabel.setText("Loaded game");
             });
 
         MenuButton exitGameButton = new MenuButton("Exit");

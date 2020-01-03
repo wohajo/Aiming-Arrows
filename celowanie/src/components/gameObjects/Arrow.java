@@ -4,7 +4,7 @@ import components.abstracts.Element;
 
 public class Arrow extends Element {
 
-	int clickCounter;
+	private int clickCounter;
 
 	public Arrow(int cordX, int cordY) {
 		this.clickCounter = 0;

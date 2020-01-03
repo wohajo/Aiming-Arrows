@@ -6,3 +6,26 @@
 #menuButton:hover {
     -fx-background-color: #ffffff;
 }
+
+#BlockElement {
+    -fx-font: 20px "Roboto";
+    -fx-background-color: #000000;
+}
+
+#CellElement {
+    -fx-font: 20px "Roboto";
+    -fx-background-color: #9c8c27;
+}
+
+#CellElement:hover {
+    -fx-background-color: #e9d829;
+}
+
+#ArrowElement {
+    -fx-font: 20px "Roboto";
+    -fx-background-color: #9c8c27;
+}
+
+#ArrowElement:hover {
+    -fx-background-color: #e9d829;
+}

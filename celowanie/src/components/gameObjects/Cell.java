@@ -4,7 +4,7 @@ import components.abstracts.Element;
 
 public class Cell extends Element {
 
-    int value;
+    private int value;
 
     public Cell(int cordX, int cordY, int value) {
         this.value = value;
