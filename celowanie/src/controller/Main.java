@@ -17,6 +17,7 @@ public class Main extends Application {
             myScene.setFill(Color.rgb(66,66,66));
             myScene.getStylesheets().add("stylesheet.css");
             stage.setScene(myScene);
+            stage.setResizable(false);
             stage.show();
         }
         catch (Exception e) {

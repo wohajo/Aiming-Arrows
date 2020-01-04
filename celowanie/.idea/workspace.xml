@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/celowanie.iml" beforeDir="false" afterPath="$PROJECT_DIR$/celowanie.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/GameGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ViewBoard.java" beforeDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,12 +101,13 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../xsandos-master" />
+    <property name="last_opened_file_path" value="$PATH_TO_FX$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -115,19 +121,13 @@
       <recent name="I:\PROGRAMMING\PROJEKTY\Java lang projects\AimingArrows\Aiming-Arrows\celowanie\src\model" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -139,12 +139,6 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
-    </configuration>
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
@@ -200,6 +194,18 @@
       </method>
     </configuration>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -230,6 +236,9 @@
       <workItem from="1577985987947" duration="2040000" />
       <workItem from="1578006380604" duration="1597000" />
       <workItem from="1578045848343" duration="1318000" />
+      <workItem from="1578136452813" duration="1918000" />
+      <workItem from="1578139227572" duration="5570000" />
+      <workItem from="1578144979454" duration="371000" />
     </task>
     <servers />
   </component>
@@ -266,41 +275,49 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577719002689" />
-    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1577457992593">
+    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578143298510">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577457992593" />
-    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl" timestamp="1577561721858">
+    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578143298510" />
+    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl" timestamp="1578136553423">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1577561721858" />
-    <state width="918" height="112" key="GridCell.Tab.0.bottom" timestamp="1577806729976">
+    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1578136553423" />
+    <state width="1878" height="112" key="GridCell.Tab.0.bottom" timestamp="1578145354704">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="918" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1577806729976" />
-    <state width="918" height="112" key="GridCell.Tab.0.center" timestamp="1577806729975">
+    <state width="1878" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1578145354704" />
+    <state width="1878" height="112" key="GridCell.Tab.0.center" timestamp="1578145354704">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="918" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1577806729975" />
-    <state width="918" height="112" key="GridCell.Tab.0.left" timestamp="1577806729975">
+    <state width="1878" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1578145354704" />
+    <state width="1878" height="112" key="GridCell.Tab.0.left" timestamp="1578145354703">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="918" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1577806729975" />
-    <state width="918" height="112" key="GridCell.Tab.0.right" timestamp="1577806729976">
+    <state width="1878" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1578145354703" />
+    <state width="1878" height="112" key="GridCell.Tab.0.right" timestamp="1578145354704">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="918" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1577806729976" />
-    <state x="0" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1577396070979">
+    <state width="1878" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1578145354704" />
+    <state x="0" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1578136557592">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="0" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1577396070979" />
+    <state x="0" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1578136557592" />
     <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1577455162504">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1577455162504" />
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1577803607057">
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578144984372">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577803607057" />
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578144984372" />
+    <state x="371" y="257" width="1168" height="599" key="new project wizard" timestamp="1578138383081">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="371" y="257" width="1168" height="599" key="new project wizard/0.27.1920.1053@0.27.1920.1053" timestamp="1578138383081" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1578143924081">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1578143924081" />
   </component>
 </project>

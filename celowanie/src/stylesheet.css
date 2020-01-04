@@ -1,31 +1,35 @@
 #menuButton {
     -fx-font: 20px "Roboto";
     -fx-background-color: #aaaaaa;
+    -fx-background-radius: 0;
 }
 
 #menuButton:hover {
     -fx-background-color: #ffffff;
 }
 
-#BlockElement {
+#blockElement {
     -fx-font: 20px "Roboto";
     -fx-background-color: #000000;
+    -fx-background-radius: 0;
 }
 
-#CellElement {
+#cellElement {
     -fx-font: 20px "Roboto";
     -fx-background-color: #9c8c27;
+    -fx-background-radius: 0;
 }
 
-#CellElement:hover {
+#cellElement:hover {
     -fx-background-color: #e9d829;
 }
 
-#ArrowElement {
+#arrowElement {
     -fx-font: 20px "Roboto";
-    -fx-background-color: #9c8c27;
+    -fx-background-color: #545454;
+    -fx-background-radius: 0;
 }
 
-#ArrowElement:hover {
-    -fx-background-color: #e9d829;
+#arrowElement:hover {
+    -fx-background-color: #aeaeae;
 }
