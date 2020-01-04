@@ -1,7 +1,8 @@
 package controller;
 
+import components.abstracts.Element;
 import model.ModelBoard;
-import view.GameGrid;
+import view.menuComponents.GameGrid;
 import view.MainGUI;
 
 public class GameController {
@@ -9,6 +10,7 @@ public class GameController {
     private MainGUI mainGUI;
     private GameGrid viewBoard;
     private ModelBoard modelBoard;
+    private Element[][] elements;
 
     public GameController() {
         this.mainGUI = new MainGUI();

@@ -1,12 +1,11 @@
 package view;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import view.menuComponents.GameGrid;
+import view.menuComponents.Menu;
+import view.menuComponents.TopPane;
 
 public class MainGUI extends BorderPane {
 
@@ -26,5 +25,9 @@ public class MainGUI extends BorderPane {
         this.setTop(topPane.getTopPane());
         this.setRight(rightPane.getMenu());
         this.setCenter(gameGrid.getGameGrid());
+    }
+
+    public void changeMainView(Pane pane) {
+        this.setCenter(pane);
     }
 }

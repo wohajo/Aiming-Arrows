@@ -1,12 +1,14 @@
-package view;
+package view.menuComponents;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import view.buttons.MenuButton;
 
 public class Menu extends VBox {
 
@@ -14,13 +16,21 @@ public class Menu extends VBox {
 
     public Menu() {
 
+        Label gameLabel = new Label("Game");
+
         MenuButton saveFileButton = new MenuButton("Save");
 
         MenuButton openFileButton = new MenuButton("Load");
 
+        MenuButton editBoardButton = new MenuButton("Edit");
+
+        Label historyLabel = new Label("History");
+
         MenuButton forwardButton = new MenuButton("Forward");
 
         MenuButton backButton = new MenuButton("Back");
+
+        Label controlsLabel = new Label("Controls");
 
         MenuButton helpButton = new MenuButton("Help");
 
@@ -30,7 +40,7 @@ public class Menu extends VBox {
         });
 
         this.menu = new VBox();
-        menu.getChildren().addAll(openFileButton, saveFileButton, forwardButton, backButton, helpButton, exitGameButton);
+        menu.getChildren().addAll(gameLabel, openFileButton, saveFileButton, editBoardButton, historyLabel, forwardButton, backButton, controlsLabel, helpButton, exitGameButton);
         menu.setSpacing(10);
         menu.setPadding(new Insets(0, 20, 0, 20));
         menu.setAlignment(Pos.TOP_CENTER);
