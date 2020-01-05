@@ -23,7 +23,7 @@ public class TopPane extends HBox {
         this.topPane = new HBox();
         topPane.getChildren().add(topLabel);
         topPane.setAlignment(Pos.CENTER);
-        topPane.setBackground(new Background(new BackgroundFill(Color.rgb(10, 10, 20), CornerRadii.EMPTY, Insets.EMPTY)));
+        topPane.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     public HBox getTopPane() {

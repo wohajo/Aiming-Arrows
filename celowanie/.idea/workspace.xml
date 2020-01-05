@@ -2,14 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/states.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowDown.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowDown.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowDownLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowDownLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowDownRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowDownRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowUp.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowUp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowUpLeft.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowUpLeft.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/arrowUpRight.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/arrowUpRight.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/exitGame.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/exitGame.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/loadFile.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/loadFile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/rsc/saveFile.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/rsc/saveFile.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/abstracts/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/abstracts/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/GameButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/buttons/GameButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/buttons/MenuButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/TopPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/TopPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/buttons/GameButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/buttons/GameButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/TopPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/TopPane.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,11 +127,14 @@
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/rsc" />
+      <recent name="$PROJECT_DIR$/src/view/menuComponents" />
+      <recent name="I:\PROGRAMMING\PROJEKTY\Java lang projects\AimingArrows\Aiming-Arrows\celowanie\src\model" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="components.abstracts" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="I:\PROGRAMMING\PROJEKTY\Java lang projects\AimingArrows\Aiming-Arrows\celowanie\src\model" />
     </key>
   </component>
   <component name="RunManager">
@@ -237,6 +256,17 @@
       <workItem from="1578139227572" duration="5570000" />
       <workItem from="1578144979454" duration="3566000" />
       <workItem from="1578149799070" duration="636000" />
+      <workItem from="1578174301863" duration="492000" />
+      <workItem from="1578174962605" duration="219000" />
+      <workItem from="1578225079675" duration="887000" />
+      <workItem from="1578227138257" duration="265000" />
+      <workItem from="1578227518493" duration="54000" />
+      <workItem from="1578228853379" duration="1221000" />
+      <workItem from="1578238894195" duration="976000" />
+      <workItem from="1578240127313" duration="145000" />
+      <workItem from="1578240544008" duration="3534000" />
+      <workItem from="1578251465892" duration="2096000" />
+      <workItem from="1578254572785" duration="93000" />
     </task>
     <servers />
   </component>
@@ -261,14 +291,14 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577719049148">
+    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578227570790">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577719049148" />
-    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1577632760880">
+    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578227570790" />
+    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1578240873124">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1577632760880" />
+    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1578240873124" />
     <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577719002689">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -277,26 +307,26 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578143298510" />
-    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl" timestamp="1578136553423">
+    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl" timestamp="1578175024375">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1578136553423" />
-    <state width="1878" height="112" key="GridCell.Tab.0.bottom" timestamp="1578149639608">
+    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1578175024375" />
+    <state width="1878" height="112" key="GridCell.Tab.0.bottom" timestamp="1578253891198">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1578149639608" />
-    <state width="1878" height="112" key="GridCell.Tab.0.center" timestamp="1578149639608">
+    <state width="1878" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1578253891198" />
+    <state width="1878" height="112" key="GridCell.Tab.0.center" timestamp="1578253891197">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1578149639608" />
-    <state width="1878" height="112" key="GridCell.Tab.0.left" timestamp="1578149639608">
+    <state width="1878" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1578253891197" />
+    <state width="1878" height="112" key="GridCell.Tab.0.left" timestamp="1578253891197">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1578149639608" />
-    <state width="1878" height="112" key="GridCell.Tab.0.right" timestamp="1578149639608">
+    <state width="1878" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1578253891197" />
+    <state width="1878" height="112" key="GridCell.Tab.0.right" timestamp="1578253891198">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1578149639608" />
+    <state width="1878" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1578253891198" />
     <state x="0" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1578136557592">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
@@ -305,14 +335,14 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1577455162504" />
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578149835845">
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578254571565">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578149835845" />
-    <state x="371" y="257" width="1168" height="599" key="new project wizard" timestamp="1578138383081">
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578254571565" />
+    <state x="371" y="257" width="1168" height="599" key="new project wizard" timestamp="1578175036144">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="371" y="257" width="1168" height="599" key="new project wizard/0.27.1920.1053@0.27.1920.1053" timestamp="1578138383081" />
+    <state x="371" y="257" width="1168" height="599" key="new project wizard/0.27.1920.1053@0.27.1920.1053" timestamp="1578175036144" />
     <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1578143924081">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>

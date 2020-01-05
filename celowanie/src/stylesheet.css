@@ -25,6 +25,9 @@
 }
 
 #arrowElement {
+    -fx-background-repeat: stretch;
+    -fx-background-image: url(rsc/arrowDown.png);
+    -fx-background-position: center center;
     -fx-font: 20px "Roboto";
     -fx-background-color: #545454;
     -fx-background-radius: 0;

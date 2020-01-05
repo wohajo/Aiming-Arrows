@@ -8,11 +8,13 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import view.MainGUI;
 import view.buttons.MenuButton;
 
 public class Menu extends VBox {
 
     private VBox menu;
+    private MenuButton helpButton;
 
     public Menu() {
 
@@ -32,7 +34,7 @@ public class Menu extends VBox {
 
         Label controlsLabel = new Label("Controls");
 
-        MenuButton helpButton = new MenuButton("Help");
+        this.helpButton = new MenuButton("Help");
 
         MenuButton exitGameButton = new MenuButton("Exit");
         exitGameButton.setOnAction(actionEvent -> {
@@ -44,11 +46,15 @@ public class Menu extends VBox {
         menu.setSpacing(10);
         menu.setPadding(new Insets(0, 20, 0, 20));
         menu.setAlignment(Pos.TOP_CENTER);
-        menu.setBackground(new Background(new BackgroundFill(Color.rgb(10, 10, 20), CornerRadii.EMPTY, Insets.EMPTY)));
+        menu.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
     public VBox getMenu() {
         return menu;
+    }
+
+    public MenuButton getHelpButton() {
+        return helpButton;
     }
 
 }

@@ -21,5 +21,4 @@ public class GameController {
     public ModelBoard getModelBoard() {
         return modelBoard;
     }
-
 }

@@ -30,4 +30,8 @@ public class MainGUI extends BorderPane {
     public void changeMainView(Pane pane) {
         this.setCenter(pane);
     }
+
+    public Menu getRightPane() {
+        return rightPane;
+    }
 }

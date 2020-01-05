@@ -1,0 +1,4 @@
+STATES:
+    - GAME
+        - WIN
+    - HELP

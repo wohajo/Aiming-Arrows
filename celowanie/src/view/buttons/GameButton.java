@@ -12,4 +12,8 @@ public class GameButton extends Button {
         this.setId(id);
         this.setAlignment(Pos.CENTER);
     }
+
+    public void changeLabel(int label) {
+        this.setText(String.valueOf(label));
+    }
 }
