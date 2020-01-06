@@ -16,7 +16,7 @@ public class TopPane extends HBox {
     private Label topLabel;
 
     public TopPane() {
-        this.topLabel = new Label("AIMING ARROWS");
+        this.topLabel = new Label("Aiming arrows");
         this.topLabel.setPadding(new Insets(10, 0, 10, 0));
         this.topLabel.setFont(Font.font("Roboto", 32));
 
@@ -34,4 +34,5 @@ public class TopPane extends HBox {
         this.topLabel.setText(text);
     }
 
+    public void changeLabelToDefault() {this.topLabel.setText("Aiming arrows");}
 }

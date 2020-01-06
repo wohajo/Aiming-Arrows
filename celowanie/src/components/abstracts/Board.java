@@ -12,7 +12,7 @@ public abstract class Board {
     public Board(int dimX, int dimY) {
         setDimX(dimX);
         setDimY(dimY);
-        boardElements = new Element[dimX][dimY];
+        this.boardElements = new Element[dimX][dimY];
     }
     public void setDimX(int dimX) {
         this.dimX = dimX;

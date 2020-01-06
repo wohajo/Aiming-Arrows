@@ -2,13 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/abstracts/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/abstracts/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/misc/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ModelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/buttons/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/buttons/MenuButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/menuComponents/HelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/HelpPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/TopPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/TopPane.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,13 +128,19 @@
       <recent name="I:\PROGRAMMING\PROJEKTY\Java lang projects\AimingArrows\Aiming-Arrows\celowanie\src\model" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager">
-    <configuration default="true" type="Applet">
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -139,6 +152,12 @@
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
+    </configuration>
+    <configuration default="true" type="Applet">
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="controller.Main" />
@@ -194,18 +213,6 @@
       </method>
     </configuration>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -256,6 +263,8 @@
       <workItem from="1578260280195" duration="872000" />
       <workItem from="1578322399539" duration="707000" />
       <workItem from="1578331792112" duration="330000" />
+      <workItem from="1578333208088" duration="6851000" />
+      <workItem from="1578343720482" duration="2932000" />
     </task>
     <servers />
   </component>

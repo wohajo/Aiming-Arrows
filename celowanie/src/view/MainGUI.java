@@ -1,9 +1,11 @@
 package view;
 
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import view.menuComponents.GameGrid;
+import view.menuComponents.HelpPanel;
 import view.menuComponents.Menu;
 import view.menuComponents.TopPane;
 
@@ -11,20 +13,21 @@ public class MainGUI extends BorderPane {
 
     private TopPane topPane;
     private Menu menu;
-    private GameGrid gameGrid;
+    private GameGrid gameBoard;
 
     public MainGUI() {
         this.topPane = new TopPane();
         this.menu = new Menu();
-        this.gameGrid = new GameGrid(7);
+        this.gameBoard = new GameGrid(7);
 
-        this.gameGrid.setAlignment(Pos.CENTER);
+        this.gameBoard.setAlignment(Pos.CENTER);
         this.topPane.setAlignment(Pos.CENTER);
         this.menu.setAlignment(Pos.CENTER);
 
+        this.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
         this.setTop(topPane.getTopPane());
         this.setRight(menu.getVboxMenu());
-        this.setCenter(gameGrid.getGameGrid());
+        this.setCenter(gameBoard.getGameGrid());
     }
 
     public void changeMainView(Pane pane) {
@@ -35,11 +38,15 @@ public class MainGUI extends BorderPane {
         return menu;
     }
 
-    public GameGrid getGameGrid() {
-        return gameGrid;
+    public TopPane getTopPane() {
+        return topPane;
+    }
+
+    public GameGrid getGameBoard() {
+        return gameBoard;
     }
 
     public void setGameGrid(GameGrid gameGrid) {
-        this.gameGrid = gameGrid;
+        this.gameBoard = gameGrid;
     }
 }

@@ -14,6 +14,7 @@ import view.buttons.MenuButton;
 public class Menu extends VBox {
 
     private VBox vboxMenu;
+    private MenuButton startGameButton;
     private MenuButton saveFileButton;
     private MenuButton openFileButton;
     private MenuButton editBoardButton;
@@ -25,6 +26,8 @@ public class Menu extends VBox {
     public Menu() {
 
         Label gameLabel = new Label("Game");
+
+        this.startGameButton = new MenuButton("Start");
 
         this.saveFileButton = new MenuButton("Save");
 
@@ -56,6 +59,30 @@ public class Menu extends VBox {
         return vboxMenu;
     }
 
+    public MenuButton getStartGameButton() {
+        return startGameButton;
+    }
+
+    public MenuButton getOpenFileButton() {
+        return openFileButton;
+    }
+
+    public MenuButton getSaveFileButton() {
+        return saveFileButton;
+    }
+
+    public MenuButton getEditBoardButton() {
+        return editBoardButton;
+    }
+
+    public MenuButton getForwardButton() {
+        return forwardButton;
+    }
+
+    public MenuButton getBackButton() {
+        return backButton;
+    }
+
     public MenuButton getHelpButton() {
         return helpButton;
     }
@@ -64,3 +91,4 @@ public class Menu extends VBox {
         return exitGameButton;
     }
 }
+
