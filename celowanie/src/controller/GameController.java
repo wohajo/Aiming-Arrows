@@ -19,8 +19,15 @@ public class GameController {
 
     public GameController() {
 
+        this.helpPanel = new HelpPanel();
         this.mainGUI = new MainGUI();
         this.viewBoard = new GameGrid(7);
+        mainGUI.getMenu().getExitGameButton().setOnAction(e -> {
+            System.exit(0);
+        });
+        mainGUI.getMenu().getHelpButton().setOnAction(e -> {
+            mainGUI.changeMainView(helpPanel);
+        });
 
     }
     public MainGUI getMainGUI() {
@@ -51,3 +58,5 @@ public class GameController {
         return helpPanel;
     }
 }
+
+

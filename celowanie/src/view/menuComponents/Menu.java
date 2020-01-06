@@ -13,48 +13,54 @@ import view.buttons.MenuButton;
 
 public class Menu extends VBox {
 
-    private VBox menu;
+    private VBox vboxMenu;
+    private MenuButton saveFileButton;
+    private MenuButton openFileButton;
+    private MenuButton editBoardButton;
+    private MenuButton forwardButton;
+    private MenuButton backButton;
     private MenuButton helpButton;
+    private MenuButton exitGameButton;
 
     public Menu() {
 
         Label gameLabel = new Label("Game");
 
-        MenuButton saveFileButton = new MenuButton("Save");
+        this.saveFileButton = new MenuButton("Save");
 
-        MenuButton openFileButton = new MenuButton("Load");
+        this.openFileButton = new MenuButton("Load");
 
-        MenuButton editBoardButton = new MenuButton("Edit");
+        this.editBoardButton = new MenuButton("Edit");
 
         Label historyLabel = new Label("History");
 
-        MenuButton forwardButton = new MenuButton("Forward");
+        this.forwardButton = new MenuButton("Forward");
 
-        MenuButton backButton = new MenuButton("Back");
+        this.backButton = new MenuButton("Back");
 
         Label controlsLabel = new Label("Controls");
 
         this.helpButton = new MenuButton("Help");
 
-        MenuButton exitGameButton = new MenuButton("Exit");
-        exitGameButton.setOnAction(actionEvent -> {
-            System.exit(0);
-        });
+       this.exitGameButton = new MenuButton("Exit");
 
-        this.menu = new VBox();
-        menu.getChildren().addAll(gameLabel, openFileButton, saveFileButton, editBoardButton, historyLabel, forwardButton, backButton, controlsLabel, helpButton, exitGameButton);
-        menu.setSpacing(10);
-        menu.setPadding(new Insets(0, 20, 0, 20));
-        menu.setAlignment(Pos.TOP_CENTER);
-        menu.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
+        this.vboxMenu = new VBox();
+        vboxMenu.getChildren().addAll(gameLabel, openFileButton, saveFileButton, editBoardButton, historyLabel, forwardButton, backButton, controlsLabel, helpButton, exitGameButton);
+        vboxMenu.setSpacing(10);
+        vboxMenu.setPadding(new Insets(0, 20, 0, 20));
+        vboxMenu.setAlignment(Pos.TOP_CENTER);
+        vboxMenu.setBackground(new Background(new BackgroundFill(Color.rgb(0, 0, 0), CornerRadii.EMPTY, Insets.EMPTY)));
     }
 
-    public VBox getMenu() {
-        return menu;
+    public VBox getVboxMenu() {
+        return vboxMenu;
     }
 
     public MenuButton getHelpButton() {
         return helpButton;
     }
 
+    public MenuButton getExitGameButton() {
+        return exitGameButton;
+    }
 }

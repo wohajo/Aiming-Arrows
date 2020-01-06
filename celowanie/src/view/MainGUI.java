@@ -10,20 +10,20 @@ import view.menuComponents.TopPane;
 public class MainGUI extends BorderPane {
 
     private TopPane topPane;
-    private Menu rightPane;
+    private Menu menu;
     private GameGrid gameGrid;
 
     public MainGUI() {
         this.topPane = new TopPane();
-        this.rightPane = new Menu();
+        this.menu = new Menu();
         this.gameGrid = new GameGrid(7);
 
         this.gameGrid.setAlignment(Pos.CENTER);
         this.topPane.setAlignment(Pos.CENTER);
-        this.rightPane.setAlignment(Pos.CENTER);
+        this.menu.setAlignment(Pos.CENTER);
 
         this.setTop(topPane.getTopPane());
-        this.setRight(rightPane.getMenu());
+        this.setRight(menu.getVboxMenu());
         this.setCenter(gameGrid.getGameGrid());
     }
 
@@ -31,7 +31,15 @@ public class MainGUI extends BorderPane {
         this.setCenter(pane);
     }
 
-    public Menu getRightPane() {
-        return rightPane;
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public GameGrid getGameGrid() {
+        return gameGrid;
+    }
+
+    public void setGameGrid(GameGrid gameGrid) {
+        this.gameGrid = gameGrid;
     }
 }
