@@ -1,7 +1,5 @@
 package controller;
 
-import com.sun.webkit.Timer;
-import components.abstracts.Board;
 import components.abstracts.Element;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -24,10 +22,10 @@ public class GameController {
 
         this.helpPanel = new HelpPanel();
         this.mainGUI = new MainGUI();
+        this.modelBoard = new ModelBoard(7,7);
 
         mainGUI.getMenu().getStartGameButton().setOnAction(e -> {
             if(!mainGUI.getMenu().getStartGameButton().getIsClicked()) {
-                mainGUI.getGameBoard().setGameGrid( mainGUI.getGameBoard().getDefaultBoard());
                 mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
                 mainGUI.getMenu().getStartGameButton().setId("menuButtonInactive");
             } else {

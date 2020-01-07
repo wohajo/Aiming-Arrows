@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/abstracts/Element.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/abstracts/Element.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Arrow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/misc/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ModelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/HelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/HelpPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -110,6 +110,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="RecentsManager">
@@ -264,6 +265,10 @@
       <workItem from="1578333208088" duration="6851000" />
       <workItem from="1578343720482" duration="2932000" />
       <workItem from="1578346768592" duration="4825000" />
+      <workItem from="1578399349923" duration="1869000" />
+      <workItem from="1578402028190" duration="1489000" />
+      <workItem from="1578407746856" duration="961000" />
+      <workItem from="1578408749297" duration="3132000" />
     </task>
     <servers />
   </component>
@@ -288,65 +293,56 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1578227570790">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578227570790" />
-    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser" timestamp="1578240873124">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1578240873124" />
-    <state x="693" y="334" width="524" height="450" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1578257210535">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="693" y="334" width="524" height="450" key="#com.intellij.ide.util.PackageChooserDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578257210535" />
-    <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577719002689">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1577719002689" />
-    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578143298510">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578143298510" />
-    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl" timestamp="1578175024375">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1578175024375" />
-    <state width="1878" height="112" key="GridCell.Tab.0.bottom" timestamp="1578332125174">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1578332125174" />
-    <state width="1878" height="112" key="GridCell.Tab.0.center" timestamp="1578332125174">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1578332125174" />
-    <state width="1878" height="112" key="GridCell.Tab.0.left" timestamp="1578332125174">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1578332125174" />
-    <state width="1878" height="112" key="GridCell.Tab.0.right" timestamp="1578332125174">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state width="1878" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1578332125174" />
-    <state x="0" y="131" width="1024" height="852" key="SettingsEditor" timestamp="1578136557592">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="0" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1578136557592" />
-    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" timestamp="1577455162504">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1577455162504" />
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" timestamp="1578331900913">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1578331900913" />
-    <state x="371" y="257" width="1168" height="599" key="new project wizard" timestamp="1578175036144">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="371" y="257" width="1168" height="599" key="new project wizard/0.27.1920.1053@0.27.1920.1053" timestamp="1578175036144" />
-    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1578143924081">
-      <screen x="0" y="27" width="1920" height="1053" />
-    </state>
-    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1578143924081" />
+    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" />
+    <state x="430" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" />
+    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser" />
+    <state x="768" y="266" width="374" height="582" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" />
+    <state x="693" y="334" width="524" height="450" key="#com.intellij.ide.util.PackageChooserDialog" />
+    <state x="693" y="334" width="524" height="450" key="#com.intellij.ide.util.PackageChooserDialog/0.27.1920.1053@0.27.1920.1053" />
+    <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog" />
+    <state x="704" y="316" width="525" height="434" key="#com.intellij.ide.util.TreeClassChooserDialog/0.27.1920.1053@0.27.1920.1053" />
+    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" />
+    <state x="1173" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" />
+    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl" />
+    <state x="181" y="301" width="652" height="519" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" />
+    <state width="1878" height="112" key="GridCell.Tab.0.bottom" />
+    <state width="1878" height="112" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" />
+    <state width="1878" height="112" key="GridCell.Tab.0.center" />
+    <state width="1878" height="112" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" />
+    <state width="1878" height="112" key="GridCell.Tab.0.left" />
+    <state width="1878" height="112" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" />
+    <state width="1878" height="112" key="GridCell.Tab.0.right" />
+    <state width="1878" height="112" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" />
+    <state x="0" y="131" width="1024" height="852" key="SettingsEditor" />
+    <state x="0" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" />
+    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2" />
+    <state x="555" y="289" width="800" height="535" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" />
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog" />
+    <state x="159" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" />
+    <state x="371" y="257" width="1168" height="599" key="new project wizard" />
+    <state x="371" y="257" width="1168" height="599" key="new project wizard/0.27.1920.1053@0.27.1920.1053" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/view/menuComponents/GameGrid.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/view/menuComponents/GameGrid.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/view/menuComponents/GameGrid.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

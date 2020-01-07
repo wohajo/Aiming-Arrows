@@ -34,7 +34,10 @@ public abstract class Element extends Button {
 	}
 
 	public void valueInc() {
-		this.value ++;
+		if(this.value > 8)
+			this.value = 0;
+		else
+			this.value ++;
 	}
 
 	public void valueDec() {

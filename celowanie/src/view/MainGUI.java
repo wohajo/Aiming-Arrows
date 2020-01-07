@@ -19,7 +19,7 @@ public class MainGUI extends BorderPane {
     public MainGUI() {
         this.topPane = new TopPane();
         this.menu = new Menu();
-        this.gameBoard = new GameGrid(7);
+        this.gameBoard = new GameGrid();
         this.welcomePane = new WelcomePane();
 
         this.welcomePane.setAlignment(Pos.CENTER);
