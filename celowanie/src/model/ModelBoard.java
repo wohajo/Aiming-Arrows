@@ -1,20 +1,18 @@
 package model;
 
 import components.abstracts.Board;
-import components.abstracts.Element;
-import components.gameObjects.Arrow;
-import components.gameObjects.Block;
-import components.gameObjects.Cell;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class ModelBoard extends Board {
 
-    Element[][] defaultBoard;
+    int[][] defaultSolutionBoard  = {{3, 3, 6, 2, 3}, {5, 4, 3, 2, 4}, {5, 2, 2, 0, 3}, {2, 2, 3, 0, 2}, {4, 3, 5, 3, 6}};
+    int[][] newSolutionBoard = new int[5][5];
 
     public ModelBoard(int dimX, int dimY) {
         super(dimX, dimY);
+    }
+
+    public int[][] getDefaultSolutionBoard() {
+        return defaultSolutionBoard;
     }
 }
 

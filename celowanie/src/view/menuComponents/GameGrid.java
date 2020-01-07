@@ -7,10 +7,13 @@ import components.gameObjects.Cell;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameGrid extends GridPane {
 
     private GridPane gameGrid;
-    int[][] numbers = {{3, 3, 6, 2, 3}, {5, 4, 3, 2, 4}, {5, 2, 2, 0, 3}, {2, 2, 3, 0, 2}, {4, 3, 5, 3, 6}};
+    int[][] startGameBoard = {{4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}};
 
     public GameGrid() {
         this.gameGrid = new GridPane();
@@ -21,73 +24,68 @@ public class GameGrid extends GridPane {
                 if (dimY == 0 || dimY == 6 || dimX == 0 || dimX == 6) {
 
                     if ((dimY == 0 && dimX == 0) || (dimY == 0 && dimX == 6) || (dimY == 6 && dimX == 0) || (dimY == 6 && dimX == 6)) {
-                        System.out.println("for dimX: " + dimX + " for dimY: " + dimY);
                         Block block = new Block(dimX, dimY);
-                        System.out.println("blockX: " + block.getCordX() + " blockY: " + block.getCordY());
                         this.gameGrid.addRow(dimY, block);
+
                         block.setOnAction(e -> {
-                            block.setText(block.getCordX() + " " + block.getCordY());
-                            System.out.println("blockX: " + block.getCordX() + " blockY: " + block.getCordY());
+                            System.out.println("X: " +  block.getCordX() + " Y: " +  block.getCordY());
                         });
+
                     } else {
 
                         if (dimX == 0) {
 
-                            System.out.println("for dimX: " + dimX + " for dimY: " + dimY);
                             Arrow arrow = new Arrow(dimX, dimY);
-                            System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
                             this.gameGrid.addRow(dimY, arrow);
+
                             arrow.setOnAction(e -> {
-                                arrow.setText(arrow.getCordX() + " " + arrow.getCordY());
-                                System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
+                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
                             });
+
                         } else if (dimY == 0) {
 
-                            System.out.println("for dimX: " + dimX + " for dimY: " + dimY);
                             Arrow arrow = new Arrow(dimX, dimY);
-                            System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
-                            arrow.setStyle("-fx-background-image: url(/rsc/arrowRight.png)");
+                            arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
                             this.gameGrid.addRow(dimY, arrow);
+
                             arrow.setOnAction(e -> {
-                                arrow.setText(arrow.getCordX() + " " + arrow.getCordY());
-                                System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
+                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
                             });
+
                         } else if (dimX == 6) {
 
-                            System.out.println("for dimX: " + dimX + " for dimY: " + dimY);
                             Arrow arrow = new Arrow(dimX, dimY);
-                            System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
-                            arrow.setStyle("-fx-background-image: url(/rsc/arrowUp.png)");
+                            arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
                             this.gameGrid.addRow(dimY, arrow);
+
                             arrow.setOnAction(e -> {
-                                arrow.setText(arrow.getCordX() + " " + arrow.getCordY());
-                                System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
+                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
                             });
+
                         } else {
 
-                            System.out.println("for dimX: " + dimX + " for dimY: " + dimY);
                             Arrow arrow = new Arrow(dimX, dimY);
-                            System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
-                            arrow.setStyle("-fx-background-image: url(/rsc/arrowLeft.png)");
+                            arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
                             this.gameGrid.addRow(dimY, arrow);
+
                             arrow.setOnAction(e -> {
-                                arrow.setText(arrow.getCordX() + " " + arrow.getCordY());
-                                System.out.println("arrowX: " + arrow.getCordX() + " arrowY: " + arrow.getCordY());
+                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
                             });
+
                         }
+
 
                     }
                 } else {
 
-                    System.out.println("for dimX: " + dimX + " for dimY: " + dimY);
-                    Cell cell = new Cell(dimX, dimY, (numbers[dimY - 1][dimX - 1]));
-                    System.out.println("cellX: " + cell.getCordX() + " cellY: " + cell.getCordY());
+                    Cell cell = new Cell(dimX, dimY, (startGameBoard[dimY - 1][dimX - 1]));
                     cell.changeLabel(cell.getValue());
                     this.gameGrid.addRow(dimY, cell);
+
                     cell.setOnAction(e -> {
-                        cell.setText(cell.getCordX() + " " + cell.getCordY());
-                        System.out.println("cellX: " + cell.getCordX() + " cellY: " + cell.getCordY());
+                        System.out.println("X: " +  cell.getCordX() + " Y: " +  cell.getCordY());
                     });
+
                 }
             }
         }
@@ -122,12 +120,20 @@ public class GameGrid extends GridPane {
         return gameGrid;
     }
 
-    private Element getNodeFromGridPane(GridPane gridPane, int col, int row) {
+    public Element getElementFromGameGrid(GridPane gridPane, int col, int row) {
         for (Node element : gridPane.getChildren()) {
             if (GridPane.getColumnIndex(element) == col && GridPane.getRowIndex(element) == row) {
                 return (Element) element;
             }
         }
         return null;
+    }
+
+    public void setGameGridCells(int[][] gameCellsLabels) {
+        for(int x = 1; x < 6; x ++) {
+            for(int y = 1; y < 6; y ++) {
+                this.getElementFromGameGrid(gameGrid, x, y).setText(String.valueOf(gameCellsLabels[x - 1][y - 1]));
+            }
+        }
     }
 }

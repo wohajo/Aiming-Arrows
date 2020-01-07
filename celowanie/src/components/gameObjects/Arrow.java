@@ -7,8 +7,6 @@ import javafx.scene.layout.*;
 
 public class Arrow extends Element {
 
-	private int clickCounter;
-
 	public Arrow(int cordX, int cordY) {
 		setCordX(cordX);
 		setCordY(cordY);
@@ -16,14 +14,5 @@ public class Arrow extends Element {
 		this.setPrefHeight(100);
 		this.setAlignment(Pos.CENTER);
 		this.setId("arrowElement");
-		this.clickCounter = 0;
-	}
-
-	public int getClickCounter() {
-		return clickCounter;
-	}
-
-	public void setClickCounter(int clickCounter) {
-		this.clickCounter = clickCounter;
 	}
 }

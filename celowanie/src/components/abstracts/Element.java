@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 
 public abstract class Element extends Button {
 
+	int clickCounter = 0;
 	int cordX;
 	int cordY;
 	int value = 0;
@@ -22,8 +23,20 @@ public abstract class Element extends Button {
 	};
 
 	public void setCordY(int cordY) {
-		this.cordX = cordY;
+		this.cordY = cordY;
 	};
+
+	public int getClickCounter() {
+		return clickCounter;
+	}
+
+	public void setClickCounter(int clickCounter) {
+		this.clickCounter = clickCounter;
+	}
+
+	public void clickCounterInc() {
+		this.clickCounter ++;
+	}
 
 	public int getValue() {
 		return value;

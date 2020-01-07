@@ -1,6 +1,7 @@
 package controller;
 
 import components.abstracts.Element;
+import components.abstracts.Position;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.ModelBoard;
@@ -14,8 +15,6 @@ public class GameController {
     private MainGUI mainGUI;
     private HelpPanel helpPanel;
     private ModelBoard modelBoard;
-    private Element[][] solutionBoard;
-    private Element[][] gameBoard;
     // private FileManager fileManager;
 
     public GameController() {
@@ -59,6 +58,10 @@ public class GameController {
             //mainGUI.changeMainView(mainGUI.getGameBoard().setGameGrid(newBoard))
 
         });
+
+        mainGUI.getMenu().getEditBoardButton().setOnAction(e -> {
+            mainGUI.getGameBoard().setGameGridCells(modelBoard.getDefaultSolutionBoard());
+        });
     }
 
     public MainGUI getMainGUI() {
@@ -69,12 +72,62 @@ public class GameController {
         return helpPanel;
     }
 
-    public Element[][] getGameBoard() {
-        return gameBoard;
+    public Element getButtonFromBoard(int col, int row) {
+        return mainGUI.getGameBoard().getElementFromGameGrid(mainGUI.getGameBoard().getGameGrid(), col, row);
     }
 
-    public Element[][] getSolutionBoard() {
-        return solutionBoard;
+    public void setArrowsClicks() {
+        // 4 * for
+    }
+
+    public void setArrowClick(int col, int row, int defaultClickCounter, Position position) {
+        Element arrow = getButtonFromBoard(col, row);
+        switch (position) {
+            case UP:
+                if (arrow.getCordX() == 1) {
+
+                } else if () {
+
+                } else {
+
+                }
+
+            case DOWN:
+                if (arrow.getCordX() == 1) {
+
+                } else if () {
+
+                } else {
+
+                }
+
+            case LEFT:
+                if (arrow.getCordX() == 1) {
+
+                } else if () {
+
+                } else {
+
+                }
+
+            case RIGHT:
+                if (arrow.getCordX() == 1) {
+
+                } else if () {
+
+                } else {
+
+                }
+        }
+           getButtonFromBoard(col, row).setOnAction(e -> {
+                if(getButtonFromBoard(col, row).getClickCounter() == 0) {
+                    getButtonFromBoard(col, row).setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
+                    getButtonFromBoard(col, row).setClickCounter(7);
+                } else {
+                    getButtonFromBoard(col, row).setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
+                    getButtonFromBoard(col, row).setClickCounter(0);
+                }
+            });
     }
 }
 

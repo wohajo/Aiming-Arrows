@@ -22,17 +22,13 @@
 
 #cellElement {
     -fx-font: 20px "Roboto";
-    -fx-background-color: #9c8c27;
+    -fx-background-color: #e8d828;
     -fx-background-radius: 0;
-}
-
-#cellElement:hover {
-    -fx-background-color: #e9d829;
 }
 
 #arrowElement {
     -fx-background-repeat: stretch;
-    -fx-background-image: url(../rsc/arrowDown.png);
+    -fx-background-image: url(/rsc/6arrowRight.png);
     -fx-background-position: center center;
     -fx-font: 20px "Roboto";
     -fx-background-color: #545454;
