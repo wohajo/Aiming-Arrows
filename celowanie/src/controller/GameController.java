@@ -25,8 +25,14 @@ public class GameController {
         this.helpPanel = new HelpPanel();
         this.mainGUI = new MainGUI();
 
-        mainGUI.getMenu().getHelpButton().setOnAction(e -> {
-
+        mainGUI.getMenu().getStartGameButton().setOnAction(e -> {
+            if(!mainGUI.getMenu().getStartGameButton().getIsClicked()) {
+                mainGUI.getGameBoard().setGameGrid( mainGUI.getGameBoard().getDefaultBoard());
+                mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
+                mainGUI.getMenu().getStartGameButton().setId("menuButtonInactive");
+            } else {
+                mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
+            }
         });
 
         mainGUI.getMenu().getHelpButton().setOnAction(e -> {

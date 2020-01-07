@@ -3,17 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/abstracts/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/abstracts/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gameObjects/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/GameState.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/misc/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/misc/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ModelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ModelBoard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MainGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/buttons/MenuButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/buttons/MenuButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/GameGrid.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/menuComponents/HelpPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/HelpPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/menuComponents/TopPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/menuComponents/TopPane.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,16 +113,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.pathVariables" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="view.menuComponents" />
-      <recent name="components.abstracts" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/misc" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/rsc" />
       <recent name="$PROJECT_DIR$/src/view/menuComponents" />
       <recent name="I:\PROGRAMMING\PROJEKTY\Java lang projects\AimingArrows\Aiming-Arrows\celowanie\src\model" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="view" />
+      <recent name="view.menuComponents" />
+      <recent name="components.abstracts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -265,6 +263,7 @@
       <workItem from="1578331792112" duration="330000" />
       <workItem from="1578333208088" duration="6851000" />
       <workItem from="1578343720482" duration="2932000" />
+      <workItem from="1578346768592" duration="4825000" />
     </task>
     <servers />
   </component>

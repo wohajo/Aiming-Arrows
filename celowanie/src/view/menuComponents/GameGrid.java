@@ -49,7 +49,7 @@ public class GameGrid extends GridPane {
             };
     }
 
-    public GameGrid(int dim, Element[][] Elements) {
+    public GameGrid(int dim, Element[][] elements) {
         this.gameGrid = new GridPane();
         for (int x = 0; x < dim; x++)
             for (int y = 0; y < dim; y++) {
@@ -57,32 +57,32 @@ public class GameGrid extends GridPane {
                     if ( (x == 0 && y == 0) || (x == 0 && y == dim - 1) || (x == dim - 1 && y == 0) || (x == dim - 1 && y == dim - 1)) {
                        /* Block block = new Block(x, y);
                         this.gameGrid.addRow(y, block);*/
-                        this.gameGrid.addRow(y, Elements[x][y]);
+                        this.gameGrid.addRow(y, elements[x][y]);
                     } else {
                         if (y == 0) {
                             /*Arrow arrow = new Arrow(x, y);
                             this.gameGrid.addRow(y, arrow);*/
-                            this.gameGrid.addRow(y, Elements[x][y]);
+                            this.gameGrid.addRow(y, elements[x][y]);
                         } else if (x == 0) {
                            /* Arrow arrow = new Arrow(x, y);
                             arrow.setStyle("-fx-background-image: url(/rsc/arrowRight.png)");
                             this.gameGrid.addRow(y, arrow);*/
-                            this.gameGrid.addRow(y, Elements[x][y]);
+                            this.gameGrid.addRow(y, elements[x][y]);
                         } else if ( y == 6) {
                            /* Arrow arrow = new Arrow(x, y);
                             arrow.setStyle("-fx-background-image: url(/rsc/arrowUp.png)");
                             this.gameGrid.addRow(y, arrow);*/
-                            this.gameGrid.addRow(y, Elements[x][y]);
+                            this.gameGrid.addRow(y, elements[x][y]);
                         } else {
                             /*Arrow arrow = new Arrow(x, y);
                             arrow.setStyle("-fx-background-image: url(/rsc/arrowLeft.png)");
                             this.gameGrid.addRow(y, arrow);*/
-                            this.gameGrid.addRow(y, Elements[x][y]);
+                            this.gameGrid.addRow(y, elements[x][y]);
                         }
 
                     }
                 } else {
-                    this.gameGrid.addRow(y, Elements[x][y]);
+                    this.gameGrid.addRow(y, elements[x][y]);
                    /* Cell cell = new Cell(x, y, y);
                     cell.changeLabel(cell.getValue());
                     cell.setOnAction(e -> {

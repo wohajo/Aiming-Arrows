@@ -48,7 +48,7 @@ public class Menu extends VBox {
        this.exitGameButton = new MenuButton("Exit");
 
         this.vboxMenu = new VBox();
-        vboxMenu.getChildren().addAll(gameLabel, openFileButton, saveFileButton, editBoardButton, historyLabel, forwardButton, backButton, controlsLabel, helpButton, exitGameButton);
+        vboxMenu.getChildren().addAll(gameLabel, startGameButton, openFileButton, saveFileButton, editBoardButton, historyLabel, forwardButton, backButton, controlsLabel, helpButton, exitGameButton);
         vboxMenu.setSpacing(10);
         vboxMenu.setPadding(new Insets(0, 20, 0, 20));
         vboxMenu.setAlignment(Pos.TOP_CENTER);

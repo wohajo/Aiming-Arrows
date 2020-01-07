@@ -4,6 +4,12 @@
     -fx-background-radius: 0;
 }
 
+#menuButtonInactive {
+    -fx-font: 20px "Roboto";
+    -fx-background-color: #3c3c3c;
+    -fx-background-radius: 0;
+}
+
 #menuButton:hover {
     -fx-background-color: #ffffff;
 }

@@ -10,6 +10,7 @@ public class Cell extends Element {
         this.setPrefHeight(100);
         this.setAlignment(Pos.CENTER);
         this.setId("cellElement");
+        setValue(value);
         setCordX(cordX);
         setCordY(cordY);
     }
