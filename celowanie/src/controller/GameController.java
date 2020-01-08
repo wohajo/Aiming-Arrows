@@ -2,30 +2,36 @@ package controller;
 
 import components.abstracts.Element;
 import components.abstracts.Position;
-import javafx.geometry.Pos;
+import components.gameObjects.Arrow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.ModelBoard;
 import view.MainGUI;
+import view.buttons.MenuButton;
+import view.menuComponents.EndGamePanel;
 import view.menuComponents.HelpPanel;
-
 import java.io.File;
 
 public class GameController {
 
     private MainGUI mainGUI;
     private HelpPanel helpPanel;
+    private EndGamePanel endGamePanel;
     private ModelBoard modelBoard;
     // private FileManager fileManager;
 
     public GameController() {
 
         this.helpPanel = new HelpPanel();
+        this.endGamePanel = new EndGamePanel();
         this.mainGUI = new MainGUI();
         this.modelBoard = new ModelBoard(7,7);
 
-        mainGUI.getMenu().getStartGameButton().setOnAction(e -> {
-            if(!mainGUI.getMenu().getStartGameButton().getIsClicked()) {
+        setArrowsClicks();
+
+        this.getStartButton().setOnAction(e -> {
+            if(!getStartButton().getIsClicked()) {
+                mainGUI.getGameBoard().setGameGridCellsValues(modelBoard.getDefaultSolutionBoard());
                 mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
                 mainGUI.getMenu().getStartGameButton().setId("menuButtonInactive");
             } else {
@@ -60,11 +66,45 @@ public class GameController {
 
         });
 
-        setArrowsClicks();
+        this.getEditBoardButton().setOnAction(e -> {
+            if(!getEditBoardButton().getIsClicked()) {
+                mainGUI.getTopPane().changeLabelText("Board editor");
+                getEditBoardButton().setText("Back");
+                for (int x = 1; x < 6; x ++) {
+                    for (int y = 1; y < 6; y ++) {
+                        Element cell = getButtonFromBoard(x ,y);
+                        cell.setId("cellElementEditable");
+                        cell.setOnAction(f -> {
+                            cell.valueInc();
+                            cell.setText(String.valueOf(cell.getValue()));
+                        });
+                    }
+                }
+                getEditBoardButton().setIsClicked(true);
+            } else {
+                for (int x = 1; x < 6; x ++) {
+                    for (int y = 1; y < 6; y ++) {
+                        Element cell = getButtonFromBoard(x ,y);
+                        cell.setId("cellElement");
+                        cell.setOnAction(g -> {
 
-        mainGUI.getMenu().getEditBoardButton().setOnAction(e -> {
-            mainGUI.getGameBoard().setGameGridCells(modelBoard.getDefaultSolutionBoard());
+                        });
+                    }
+                }
+                mainGUI.getTopPane().changeLabelText("Aiming Arrows");
+                getEditBoardButton().setText("Edit");
+                mainGUI.getGameBoard().setArrowsToDefault();
+                getEditBoardButton().setIsClicked(false);
+            }
         });
+    }
+
+    public MenuButton getStartButton() {
+        return this.mainGUI.getMenu().getStartGameButton();
+    }
+
+    public MenuButton getEditBoardButton() {
+        return this.mainGUI.getMenu().getEditBoardButton();
     }
 
     public MainGUI getMainGUI() {
@@ -91,39 +131,32 @@ public class GameController {
     }
 
     public void setArrowClick(int col, int row, Position position) {
-        Element arrow = this.getButtonFromBoard(col, row);
+        Arrow arrow = (Arrow) this.getButtonFromBoard(col, row);
         if (position == Position.UP) {
             if (arrow.getCordX() == 1) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 0) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
-                        arrow.setClickCounter(7);
+                        arrow.setArrowDownRight(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
-                        arrow.setClickCounter(0);
+                        arrow.setArrowDown(arrow);
                     }
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 0) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
-                        arrow.setClickCounter(1);
+                        arrow.setArrowDownLeft(arrow);
                     } else if (arrow.getClickCounter() == 1) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
-                        arrow.setClickCounter(0);
+                        arrow.setArrowDown(arrow);
                     }
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 0) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
-                        arrow.setClickCounter(1);
+                        arrow.setArrowDownLeft(arrow);
                     } else if (arrow.getClickCounter() == 1) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
-                        arrow.setClickCounter(7);
+                        arrow.setArrowDownRight(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
-                        arrow.setClickCounter(0);
+                        arrow.setArrowDown(arrow);
                     }
                 });
             }
@@ -133,34 +166,27 @@ public class GameController {
             if (arrow.getCordX() == 1) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 4) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
-                        arrow.setClickCounter(5);
+                        arrow.setArrowUpRight(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
-                        arrow.setClickCounter(4);
+                        arrow.setArrowUp(arrow);
                     }
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
-                    if (arrow.getClickCounter() == 4) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
-                        arrow.setClickCounter(3);
-                    } else if (arrow.getClickCounter() == 3) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
-                        arrow.setClickCounter(4);
+                    if (arrow.getClickCounter() == 3) {
+                        arrow.setArrowUp(arrow);
+                    } else {
+                        arrow.setArrowUpLeft(arrow);
                     }
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 4) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
-                        arrow.setClickCounter(5);
+                        arrow.setArrowUpRight(arrow);
                     } else if (arrow.getClickCounter() == 5) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
-                        arrow.setClickCounter(3);
+                        arrow.setArrowUpLeft(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
-                        arrow.setClickCounter(4);
+                        arrow.setArrowUp(arrow);
                     }
                 });
             }
@@ -169,35 +195,28 @@ public class GameController {
         if (position == Position.LEFT) {
             if (arrow.getCordY() == 1) {
                 arrow.setOnAction(e -> {
-                    if (arrow.getClickCounter() == 6) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/6arrowRight.png)");
-                        arrow.setClickCounter(7);
+                    if (arrow.getClickCounter() == 7) {
+                        arrow.setArrowRight(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
-                        arrow.setClickCounter(6);
+                        arrow.setArrowDownRight(arrow);
                     }
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 6) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/6arrowRight.png)");
-                        arrow.setClickCounter(5);
-                    } else if (arrow.getClickCounter() == 5) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
-                        arrow.setClickCounter(6);
+                        arrow.setArrowUpRight(arrow);
+                    } else {
+                        arrow.setArrowRight(arrow);
                     }
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 6) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/6arrowRight.png)");
-                        arrow.setClickCounter(7);
+                        arrow.setArrowDownRight(arrow);
                     } else if (arrow.getClickCounter() == 7) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
-                        arrow.setClickCounter(5);
+                        arrow.setArrowUpRight(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
-                        arrow.setClickCounter(6);
+                        arrow.setArrowRight(arrow);
                     }
                 });
             }
@@ -206,41 +225,31 @@ public class GameController {
         if (position == Position.RIGHT) {
             if (arrow.getCordY() == 1) {
                 arrow.setOnAction(e -> {
-                    if (arrow.getClickCounter() == 2) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
-                        arrow.setClickCounter(1);
+                    if (arrow.getClickCounter() == 1) {
+                        arrow.setArrowLeft(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
-                        arrow.setClickCounter(2);
+                        arrow.setArrowDownLeft(arrow);
                     }
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
-                    if (arrow.getClickCounter() == 2) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
-                        arrow.setClickCounter(3);
-                    } else if (arrow.getClickCounter() == 3) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
-                        arrow.setClickCounter(2);
+                    if (arrow.getClickCounter() == 3) {
+                        arrow.setArrowLeft(arrow);
+                    } else {
+                        arrow.setArrowUpLeft(arrow);
                     }
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 2) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
-                        arrow.setClickCounter(3);
+                        arrow.setArrowUpLeft(arrow);
                     } else if (arrow.getClickCounter() == 3) {
-                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
-                        arrow.setClickCounter(1);
+                        arrow.setArrowDownLeft(arrow);
                     } else {
-                        arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
-                        arrow.setClickCounter(2);
+                        arrow.setArrowLeft(arrow);
                     }
                 });
             }
         }
     }
-
 }
-
-

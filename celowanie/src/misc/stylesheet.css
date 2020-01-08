@@ -26,6 +26,18 @@
     -fx-background-radius: 0;
 }
 
+#cellElementEditable {
+    -fx-font: 20px "Roboto";
+    -fx-background-color: #bdad20;
+    -fx-background-radius: 0;
+}
+
+#cellElementEditable:hover {
+    -fx-font: 20px "Roboto";
+    -fx-background-color: #e8d828;
+    -fx-background-radius: 0;
+}
+
 #arrowElement {
     -fx-background-repeat: stretch;
     -fx-background-image: url(/rsc/6arrowRight.png);
@@ -40,11 +52,14 @@
 }
 
 #description {
-    -fx-font-size: 18;
     -fx-font: 20px "Roboto";
     -fx-background-color: #505555;
 }
 
 #rulesDescriptionWrapper {
     -fx-background-color: #505555;
+}
+
+#winDescription {
+    -fx-font: 30px "Roboto";
 }

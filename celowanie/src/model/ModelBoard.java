@@ -11,6 +11,14 @@ public class ModelBoard extends Board {
             {2, 2, 3, 0, 2},
             {4, 3, 5, 3, 6}
     };
+
+    int[][] startGameBoard = {
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4}};
+
     int[][] newSolutionBoard = new int[5][5];
 
     public ModelBoard(int dimX, int dimY) {
@@ -19,6 +27,10 @@ public class ModelBoard extends Board {
 
     public int[][] getDefaultSolutionBoard() {
         return defaultSolutionBoard;
+    }
+
+    public int[][] getStartGameBoard() {
+        return startGameBoard;
     }
 }
 
