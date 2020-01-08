@@ -13,10 +13,13 @@ public class HelpPanel extends BorderPane {
     public HelpPanel() {
         // Text
         this.rulesDescription = new Text(
-                "The goal is to point as many arrows to a tile as the number on it shows. \n" +
-                        "Rotate the arrows to complete the puzzle. You can not rotate \nthe arrow so it points outside the board.\n" +
+                "The goal is to point as many arrows to a tile as the \n" +
+                        "number on it shows. Rotate the arrows to complete the puzzle. \n" +
+                        "You can not rotate the arrow so it points outside the board.\n" +
+                        "Use mouse to click on an arrow to change it's direction, \n" +
+                        "the game will check if Your solution is correct. \n" +
                         "Think of it as a some variation of sudoku.");
-        rulesDescription.setId("rulesDescription");
+        rulesDescription.setId("description");
 
         // Wrapper for description
         this.descriptionWrapper = new HBox();

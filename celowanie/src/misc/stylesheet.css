@@ -39,18 +39,9 @@
     -fx-background-color: #aeaeae;
 }
 
-#rulesLabel {
-    -fx-font: 40px "Roboto";
-    -fx-background-color: #505555;
-}
-
-#rulesDescription {
+#description {
     -fx-font-size: 18;
     -fx-font: 20px "Roboto";
-    -fx-background-color: #505555;
-}
-
-#rulesLabelWrapper {
     -fx-background-color: #505555;
 }
 

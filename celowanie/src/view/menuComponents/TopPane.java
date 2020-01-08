@@ -18,7 +18,7 @@ public class TopPane extends HBox {
     public TopPane() {
         this.topLabel = new Label("Aiming arrows");
         this.topLabel.setPadding(new Insets(10, 0, 10, 0));
-        this.topLabel.setFont(Font.font("Roboto", 32));
+        this.topLabel.setStyle("-fx-font: 32px Roboto");
 
         this.topPane = new HBox();
         topPane.getChildren().add(topLabel);

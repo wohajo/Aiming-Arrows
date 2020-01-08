@@ -13,7 +13,12 @@ import java.util.List;
 public class GameGrid extends GridPane {
 
     private GridPane gameGrid;
-    int[][] startGameBoard = {{4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}, {4, 4, 4, 4, 4}};
+    int[][] startGameBoard = {
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4}};
 
     public GameGrid() {
         this.gameGrid = new GridPane();
@@ -36,6 +41,7 @@ public class GameGrid extends GridPane {
                         if (dimX == 0) {
 
                             Arrow arrow = new Arrow(dimX, dimY);
+                            arrow.setClickCounter(6);
                             this.gameGrid.addRow(dimY, arrow);
 
                             arrow.setOnAction(e -> {
@@ -45,6 +51,7 @@ public class GameGrid extends GridPane {
                         } else if (dimY == 0) {
 
                             Arrow arrow = new Arrow(dimX, dimY);
+                            arrow.setClickCounter(0);
                             arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
                             this.gameGrid.addRow(dimY, arrow);
 
@@ -55,6 +62,7 @@ public class GameGrid extends GridPane {
                         } else if (dimX == 6) {
 
                             Arrow arrow = new Arrow(dimX, dimY);
+                            arrow.setClickCounter(2);
                             arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
                             this.gameGrid.addRow(dimY, arrow);
 
@@ -65,6 +73,7 @@ public class GameGrid extends GridPane {
                         } else {
 
                             Arrow arrow = new Arrow(dimX, dimY);
+                            arrow.setClickCounter(4);
                             arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
                             this.gameGrid.addRow(dimY, arrow);
 

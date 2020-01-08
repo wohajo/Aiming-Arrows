@@ -2,6 +2,7 @@ package controller;
 
 import components.abstracts.Element;
 import components.abstracts.Position;
+import javafx.geometry.Pos;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import model.ModelBoard;
@@ -59,6 +60,8 @@ public class GameController {
 
         });
 
+        setArrowsClicks();
+
         mainGUI.getMenu().getEditBoardButton().setOnAction(e -> {
             mainGUI.getGameBoard().setGameGridCells(modelBoard.getDefaultSolutionBoard());
         });
@@ -77,58 +80,167 @@ public class GameController {
     }
 
     public void setArrowsClicks() {
-        // 4 * for
+        for(int i = 1; i < 6; i++)
+            setArrowClick(i, 0, Position.UP);
+        for(int i = 1; i < 6; i++)
+            setArrowClick(i, 6, Position.DOWN);
+        for(int i = 1; i < 6; i++)
+            setArrowClick(0, i, Position.LEFT);
+        for(int i = 1; i < 6; i++)
+            setArrowClick(6, i, Position.RIGHT);
     }
 
-    public void setArrowClick(int col, int row, int defaultClickCounter, Position position) {
-        Element arrow = getButtonFromBoard(col, row);
-        switch (position) {
-            case UP:
-                if (arrow.getCordX() == 1) {
-
-                } else if () {
-
-                } else {
-
-                }
-
-            case DOWN:
-                if (arrow.getCordX() == 1) {
-
-                } else if () {
-
-                } else {
-
-                }
-
-            case LEFT:
-                if (arrow.getCordX() == 1) {
-
-                } else if () {
-
-                } else {
-
-                }
-
-            case RIGHT:
-                if (arrow.getCordX() == 1) {
-
-                } else if () {
-
-                } else {
-
-                }
+    public void setArrowClick(int col, int row, Position position) {
+        Element arrow = this.getButtonFromBoard(col, row);
+        if (position == Position.UP) {
+            if (arrow.getCordX() == 1) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 0) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
+                        arrow.setClickCounter(7);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
+                        arrow.setClickCounter(0);
+                    }
+                });
+            } else if (arrow.getCordX() == 5) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 0) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
+                        arrow.setClickCounter(1);
+                    } else if (arrow.getClickCounter() == 1) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
+                        arrow.setClickCounter(0);
+                    }
+                });
+            } else {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 0) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
+                        arrow.setClickCounter(1);
+                    } else if (arrow.getClickCounter() == 1) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
+                        arrow.setClickCounter(7);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
+                        arrow.setClickCounter(0);
+                    }
+                });
+            }
         }
-           getButtonFromBoard(col, row).setOnAction(e -> {
-                if(getButtonFromBoard(col, row).getClickCounter() == 0) {
-                    getButtonFromBoard(col, row).setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
-                    getButtonFromBoard(col, row).setClickCounter(7);
-                } else {
-                    getButtonFromBoard(col, row).setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
-                    getButtonFromBoard(col, row).setClickCounter(0);
-                }
-            });
+
+        if (position == Position.DOWN) {
+            if (arrow.getCordX() == 1) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 4) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
+                        arrow.setClickCounter(5);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
+                        arrow.setClickCounter(4);
+                    }
+                });
+            } else if (arrow.getCordX() == 5) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 4) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
+                        arrow.setClickCounter(3);
+                    } else if (arrow.getClickCounter() == 3) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
+                        arrow.setClickCounter(4);
+                    }
+                });
+            } else {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 4) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
+                        arrow.setClickCounter(5);
+                    } else if (arrow.getClickCounter() == 5) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
+                        arrow.setClickCounter(3);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
+                        arrow.setClickCounter(4);
+                    }
+                });
+            }
+        }
+
+        if (position == Position.LEFT) {
+            if (arrow.getCordY() == 1) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 6) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/6arrowRight.png)");
+                        arrow.setClickCounter(7);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
+                        arrow.setClickCounter(6);
+                    }
+                });
+            } else if (arrow.getCordY() == 5) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 6) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/6arrowRight.png)");
+                        arrow.setClickCounter(5);
+                    } else if (arrow.getClickCounter() == 5) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
+                        arrow.setClickCounter(6);
+                    }
+                });
+            } else {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 6) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/6arrowRight.png)");
+                        arrow.setClickCounter(7);
+                    } else if (arrow.getClickCounter() == 7) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
+                        arrow.setClickCounter(5);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
+                        arrow.setClickCounter(6);
+                    }
+                });
+            }
+        }
+
+        if (position == Position.RIGHT) {
+            if (arrow.getCordY() == 1) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 2) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
+                        arrow.setClickCounter(1);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
+                        arrow.setClickCounter(2);
+                    }
+                });
+            } else if (arrow.getCordY() == 5) {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 2) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
+                        arrow.setClickCounter(3);
+                    } else if (arrow.getClickCounter() == 3) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
+                        arrow.setClickCounter(2);
+                    }
+                });
+            } else {
+                arrow.setOnAction(e -> {
+                    if (arrow.getClickCounter() == 2) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
+                        arrow.setClickCounter(3);
+                    } else if (arrow.getClickCounter() == 3) {
+                        arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
+                        arrow.setClickCounter(1);
+                    } else {
+                        arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
+                        arrow.setClickCounter(2);
+                    }
+                });
+            }
+        }
     }
+
 }
 
 
