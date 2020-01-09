@@ -4,10 +4,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import view.menuComponents.GameGrid;
-import view.menuComponents.Menu;
-import view.menuComponents.TopPane;
-import view.menuComponents.WelcomePane;
+import view.menuComponents.*;
 
 public class MainGUI extends BorderPane {
 
@@ -15,12 +12,16 @@ public class MainGUI extends BorderPane {
     private Menu menu;
     private GameGrid gameBoard;
     private WelcomePane welcomePane;
+    private HelpPanel helpPanel;
+    private EndGamePanel endGamePanel;
 
     public MainGUI() {
         this.topPane = new TopPane();
         this.menu = new Menu();
         this.gameBoard = new GameGrid();
         this.welcomePane = new WelcomePane();
+        this.helpPanel = new HelpPanel();
+        this.endGamePanel = new EndGamePanel();
 
         this.welcomePane.setAlignment(Pos.CENTER);
         this.gameBoard.setAlignment(Pos.CENTER);
@@ -49,6 +50,14 @@ public class MainGUI extends BorderPane {
         return gameBoard;
     }
 
+    public EndGamePanel getEndGamePanel() {
+        return endGamePanel;
+    }
+
+    public HelpPanel getHelpPanel() {
+        return helpPanel;
+    }
+
     public WelcomePane getWelcomePane() {
         return welcomePane;
     }
@@ -56,4 +65,5 @@ public class MainGUI extends BorderPane {
     public void setGameGrid(GameGrid gameGrid) {
         this.gameBoard = gameGrid;
     }
+
 }

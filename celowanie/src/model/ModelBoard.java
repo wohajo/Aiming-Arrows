@@ -2,6 +2,8 @@ package model;
 
 import components.abstracts.Board;
 
+import java.lang.reflect.Array;
+
 public class ModelBoard extends Board {
 
     int[][] defaultSolutionBoard  = {
@@ -19,6 +21,20 @@ public class ModelBoard extends Board {
             {4, 4, 4, 4, 4},
             {4, 4, 4, 4, 4}};
 
+    int[][] currentSolutionBoard = {
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4}};
+
+    int[][] currentGameBoard = {
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4},
+            {4, 4, 4, 4, 4}};
+
     int[][] newSolutionBoard = new int[5][5];
 
     public ModelBoard(int dimX, int dimY) {
@@ -29,8 +45,22 @@ public class ModelBoard extends Board {
         return defaultSolutionBoard;
     }
 
+    public int[][] getCurrentGameBoard() {return currentGameBoard;}
+
     public int[][] getStartGameBoard() {
         return startGameBoard;
+    }
+
+    public boolean checkIfGameEnd() {
+        return java.util.Arrays.deepEquals(currentGameBoard, currentSolutionBoard);
+    }
+
+    public void resetCurrentGameBoard() {
+        this.currentGameBoard = this.startGameBoard;
+    }
+
+    public int[][] getCurrentSolutionBoard() {
+        return currentSolutionBoard;
     }
 }
 

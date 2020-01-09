@@ -11,19 +11,16 @@ import view.buttons.MenuButton;
 import view.menuComponents.EndGamePanel;
 import view.menuComponents.HelpPanel;
 import java.io.File;
+import java.util.Arrays;
 
 public class GameController {
 
     private MainGUI mainGUI;
-    private HelpPanel helpPanel;
-    private EndGamePanel endGamePanel;
     private ModelBoard modelBoard;
     // private FileManager fileManager;
 
     public GameController() {
 
-        this.helpPanel = new HelpPanel();
-        this.endGamePanel = new EndGamePanel();
         this.mainGUI = new MainGUI();
         this.modelBoard = new ModelBoard(7,7);
 
@@ -31,7 +28,7 @@ public class GameController {
 
         this.getStartButton().setOnAction(e -> {
             if(!getStartButton().getIsClicked()) {
-                mainGUI.getGameBoard().setGameGridCellsValues(modelBoard.getDefaultSolutionBoard());
+                mainGUI.getGameBoard().setGameGridCellsValues(modelBoard.getStartGameBoard());
                 mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
                 mainGUI.getMenu().getStartGameButton().setId("menuButtonInactive");
             } else {
@@ -43,7 +40,7 @@ public class GameController {
             if(!mainGUI.getMenu().getHelpButton().getIsClicked()) {
                 mainGUI.getTopPane().changeLabelText("Rules");
                 mainGUI.getMenu().getHelpButton().setText("Back");
-                mainGUI.changeMainView(getHelpPanel());
+                mainGUI.changeMainView(mainGUI.getHelpPanel());
                 mainGUI.getMenu().getHelpButton().setIsClicked(true);
             } else {
                 mainGUI.getMenu().getHelpButton().setText("Help");
@@ -68,22 +65,31 @@ public class GameController {
 
         this.getEditBoardButton().setOnAction(e -> {
             if(!getEditBoardButton().getIsClicked()) {
+
                 mainGUI.getTopPane().changeLabelText("Board editor");
                 getEditBoardButton().setText("Back");
                 for (int x = 1; x < 6; x ++) {
                     for (int y = 1; y < 6; y ++) {
+
                         Element cell = getButtonFromBoard(x ,y);
                         cell.setId("cellElementEditable");
+                        int finalX = x;
+                        int finalY = y;
                         cell.setOnAction(f -> {
                             cell.valueInc();
                             cell.setText(String.valueOf(cell.getValue()));
+                            // save changes to current board
+                            this.modelBoard.getCurrentSolutionBoard()[finalX - 1][finalY - 1] = cell.getValue();
                         });
                     }
                 }
                 getEditBoardButton().setIsClicked(true);
+                this.modelBoard.resetCurrentGameBoard();
+
             } else {
                 for (int x = 1; x < 6; x ++) {
                     for (int y = 1; y < 6; y ++) {
+
                         Element cell = getButtonFromBoard(x ,y);
                         cell.setId("cellElement");
                         cell.setOnAction(g -> {
@@ -111,10 +117,6 @@ public class GameController {
         return mainGUI;
     }
 
-    public HelpPanel getHelpPanel() {
-        return helpPanel;
-    }
-
     public Element getButtonFromBoard(int col, int row) {
         return mainGUI.getGameBoard().getElementFromGameGrid(mainGUI.getGameBoard().getGameGrid(), col, row);
     }
@@ -140,6 +142,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDown(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
@@ -148,6 +151,7 @@ public class GameController {
                     } else if (arrow.getClickCounter() == 1) {
                         arrow.setArrowDown(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -158,6 +162,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDown(arrow);
                     }
+                    this.checkIfEnd();
                 });
             }
         }
@@ -170,6 +175,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUp(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
@@ -178,6 +184,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUpLeft(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -188,6 +195,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUp(arrow);
                     }
+                    this.checkIfEnd();
                 });
             }
         }
@@ -200,6 +208,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDownRight(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
@@ -208,6 +217,7 @@ public class GameController {
                     } else {
                         arrow.setArrowRight(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -218,6 +228,7 @@ public class GameController {
                     } else {
                         arrow.setArrowRight(arrow);
                     }
+                    this.checkIfEnd();
                 });
             }
         }
@@ -230,6 +241,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDownLeft(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
@@ -238,6 +250,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUpLeft(arrow);
                     }
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -248,8 +261,16 @@ public class GameController {
                     } else {
                         arrow.setArrowLeft(arrow);
                     }
+                    this.checkIfEnd();
                 });
             }
+        }
+    }
+
+    public void checkIfEnd() {
+        if (this.modelBoard.checkIfGameEnd()) {
+            System.out.println(this.modelBoard.checkIfGameEnd());
+            this.mainGUI.changeMainView(mainGUI.getEndGamePanel());
         }
     }
 }

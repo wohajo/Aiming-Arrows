@@ -53,11 +53,7 @@
 
 #description {
     -fx-font: 20px "Roboto";
-    -fx-background-color: #505555;
-}
 
-#rulesDescriptionWrapper {
-    -fx-background-color: #505555;
 }
 
 #winDescription {
