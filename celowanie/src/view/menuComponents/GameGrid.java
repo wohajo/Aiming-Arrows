@@ -136,8 +136,8 @@ public class GameGrid extends GridPane {
     public void setGameGridCellsValues(int[][] gameCellsLabels) {
         for(int x = 1; x < 6; x ++) {
             for(int y = 1; y < 6; y ++) {
-                this.getElementFromGameGrid(gameGrid, x, y).setText(String.valueOf(gameCellsLabels[x - 1][y - 1]));
-                this.getElementFromGameGrid(gameGrid, x, y).setValue(gameCellsLabels[x - 1][y - 1]);
+                this.getElementFromGameGrid(gameGrid, x, y).setText(String.valueOf(gameCellsLabels[y - 1][x - 1]));
+                this.getElementFromGameGrid(gameGrid, x, y).setValue(gameCellsLabels[y - 1][x - 1]);
             }
         }
     }

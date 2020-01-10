@@ -41,6 +41,10 @@ public class ModelBoard extends Board {
         super(dimX, dimY);
     }
 
+    public void setCurrentSolutionBoardCell(int x, int y, int value) {
+        this.currentSolutionBoard[x][y] = value;
+    }
+
     public int[][] getDefaultSolutionBoard() {
         return defaultSolutionBoard;
     }
@@ -63,8 +67,8 @@ public class ModelBoard extends Board {
         }
 
         else if (position == Position.DOWN) {
-                addOrSubtractFromGameBoardForDownArrows(arrow, arrow.getPreviousClickcounter(), -1);
-                addOrSubtractFromGameBoardForDownArrows(arrow, arrow.getClickCounter(), 1);
+            addOrSubtractFromGameBoardForDownArrows(arrow, arrow.getPreviousClickcounter(), -1);
+            addOrSubtractFromGameBoardForDownArrows(arrow, arrow.getClickCounter(), 1);
         }
 
         else if (position == Position.LEFT) {
@@ -77,7 +81,9 @@ public class ModelBoard extends Board {
             addOrSubtractFromGameBoardForRightArrows(arrow, arrow.getClickCounter(), 1);
         }
 
-        System.out.println(java.util.Arrays.deepToString(currentGameBoard));
+        System.out.println("currentGameBoard" + java.util.Arrays.deepToString(currentGameBoard));
+        System.out.println("currentSolutionBoard" + java.util.Arrays.deepToString(currentSolutionBoard));
+        checkIfGameEnd();
     }
 
     private void addOrSubtractFromGameBoardForUpperArrows(Arrow arrow, int clickCounter, int switcher) {
@@ -232,13 +238,16 @@ public class ModelBoard extends Board {
         }
     }
 
-
     public void resetCurrentGameBoard() {
         currentGameBoard = new int[][]{{4, 4, 4, 4, 4},
                 {4, 4, 4, 4, 4},
                 {4, 4, 4, 4, 4},
                 {4, 4, 4, 4, 4},
                 {4, 4, 4, 4, 4}};
+    }
+
+    public void setCurrentSolutionBoard(int[][] currentSolutionBoard) {
+        this.currentSolutionBoard = currentSolutionBoard;
     }
 
     public int[][] getCurrentSolutionBoard() {

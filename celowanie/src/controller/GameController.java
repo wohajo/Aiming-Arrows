@@ -14,12 +14,14 @@ import java.util.Arrays;
 
 public class GameController {
 
+    private boolean isFirstLaunched;
     private MainGUI mainGUI;
     private ModelBoard modelBoard;
     // private FileManager fileManager;
 
     public GameController() {
 
+        this.isFirstLaunched = true;
         this.mainGUI = new MainGUI();
         this.modelBoard = new ModelBoard(7,7);
 
@@ -27,9 +29,16 @@ public class GameController {
 
         this.getStartButton().setOnAction(e -> {
             if(!getStartButton().getIsClicked()) {
-                mainGUI.getGameBoard().setGameGridCellsValues(modelBoard.getStartGameBoard());
+                if (isFirstLaunched) {
+                    mainGUI.getGameBoard().setGameGridCellsValues(modelBoard.getDefaultSolutionBoard());
+                    modelBoard.setCurrentSolutionBoard(modelBoard.getDefaultSolutionBoard());
+                    isFirstLaunched = false;
+                }
                 mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
-                mainGUI.getMenu().getStartGameButton().setId("menuButtonInactive");
+                mainGUI.getMenu().getStartGameButton().setText("Board");
+                mainGUI.getMenu().getHelpButton().setText("Help");
+                mainGUI.getTopPane().changeLabelToDefault();
+                mainGUI.getMenu().getHelpButton().setIsClicked(false);
             } else {
                 mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
             }
@@ -78,7 +87,8 @@ public class GameController {
                             cell.valueInc();
                             cell.setText(String.valueOf(cell.getValue()));
                             // save changes to current board
-                            this.modelBoard.getCurrentSolutionBoard()[finalX - 1][finalY - 1] = cell.getValue();
+                            // changes are not saving, TO FIX
+                                this.modelBoard.setCurrentSolutionBoardCell(finalY - 1, finalX - 1, cell.getValue());
                         });
                     }
                 }
@@ -142,8 +152,8 @@ public class GameController {
                     } else {
                         arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
@@ -152,8 +162,8 @@ public class GameController {
                     } else if (arrow.getClickCounter() == 1) {
                         arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -164,8 +174,8 @@ public class GameController {
                     } else {
                         arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             }
         }
@@ -178,8 +188,8 @@ public class GameController {
                     } else {
                         arrow.setArrowUp(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
@@ -188,8 +198,8 @@ public class GameController {
                     } else {
                         arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -200,8 +210,8 @@ public class GameController {
                     } else {
                         arrow.setArrowUp(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             }
         }
@@ -214,8 +224,8 @@ public class GameController {
                     } else {
                         arrow.setArrowDownRight(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
@@ -224,8 +234,8 @@ public class GameController {
                     } else {
                         arrow.setArrowRight(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -236,8 +246,8 @@ public class GameController {
                     } else {
                         arrow.setArrowRight(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             }
         }
@@ -250,8 +260,8 @@ public class GameController {
                     } else {
                         arrow.setArrowDownLeft(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
@@ -260,8 +270,8 @@ public class GameController {
                     } else {
                         arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             } else {
                 arrow.setOnAction(e -> {
@@ -272,8 +282,8 @@ public class GameController {
                     } else {
                         arrow.setArrowLeft(arrow, arrow.getClickCounter());
                     }
-                    this.checkIfEnd();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
+                    this.checkIfEnd();
                 });
             }
         }
@@ -283,6 +293,8 @@ public class GameController {
         if (this.modelBoard.checkIfGameEnd()) {
             System.out.println(this.modelBoard.checkIfGameEnd());
             this.mainGUI.changeMainView(mainGUI.getEndGamePanel());
-        }
+            this.mainGUI.getMenu().getChildren().remove(this.mainGUI.getMenu().getEditBoardButton());
+        } else
+            System.out.println(this.modelBoard.checkIfGameEnd());
     }
 }
