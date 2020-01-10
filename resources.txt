@@ -1,3 +1,0 @@
-http://zetcode.com/gui/javafx/layoutpanes/
-
-https://examples.javacodegeeks.com/desktop-java/javafx/fxml/javafx-fxml-controller-example/
