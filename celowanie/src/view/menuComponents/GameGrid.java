@@ -116,20 +116,20 @@ public class GameGrid extends GridPane {
     public void setArrowsToDefault() {
         for (int p = 1; p < 6; p ++) {
             Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, p, 0);
-            arrow.setArrowDown(arrow);
+            arrow.setArrowDown(arrow, 0);
         }
         for (int q = 1; q < 6; q ++) {
             Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, q, 6);
-            arrow.setArrowUp(arrow);
+            arrow.setArrowUp(arrow, 4);
         }
         for (int r = 1; r < 6; r ++) {
             Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, 0, r);
-            arrow.setArrowRight(arrow);
+            arrow.setArrowRight(arrow, 6);
 
         }
         for (int s = 1; s < 6; s ++) {
             Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, 6, s);
-            arrow.setArrowLeft(arrow);
+            arrow.setArrowLeft(arrow, 2);
         }
     }
 

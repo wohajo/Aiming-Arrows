@@ -36,87 +36,17 @@ Class Arrow extends Elements {
 // in case of a middle arrow, 0 is left, 1 is straight and 2 is right (perspective from behind the arrow)
 // Cord X is as usual, Cord Y is upside down to ease the calculations
 
-
-
-void onArrowClick() {
-	if (Arrow.getCordY == 0) {
-
-		switch(Arrow.getCordX) {
-
-			case 1:
-			    // TODO
-            	// subtract from previous clickCounter state
-            	// Arrow.getClickCounter
-            	//cornerArrowCounterCheck(clickCounter); //returns int
-            	// Arrow now changes its image
-            	// Arrow now adds 1 to pointed Cells
-				middleArrowCounterCheck(clickCounter); //returns int
-			
-			case 2:
-				middleArrowCounterCheck(clickCounter); //returns int
-
-			case 3:
-				middleArrowCounterCheck(clickCounter); //returns int
-
-			case 4:
-				middleArrowCounterCheck(clickCounter); //returns int
-
-			case 5:
-				cornerArrowCounterCheck(clickCounter); //returns int
-
-		}
-	}
-	else if (Arrow.getCordY == 5) {
-		if (Arrow.getCordX == 0)
-		{}
-		if (Arrow.getCordX == 6)
-		{}
-	}
-	else if (Arrow.getCordX == 1) {
-		if (Arrow.getCordY == 0)
-		{}
-		if (Arrow.getCordY == 6)
-		{}
-	}
-	else if (Arrow.getCordX == 5) {
-		if (Arrow.getCordY == 0)
-		{}
-		if (Arrow.getCordY == 6)
-		{}
-	}
-}
-
-int cornerArrowCounterCheck(int clickCounter) {
-	if (clickCounter == 1)
-		return clickCounter = 0;
-	else 
-		return 1
-}
-
-int middleArrowCounterCheck(int clickCounter) {
-	if(clickCounter == 2)
-		return 0;
-	else if (clickCounter == 1)
-		return 2;
-	else if (clickCounter == 0)
-		return 1;
-}
-
-void middleLeftArrowSubtract() {
-
-}
-
-void middleUpArrowSubtract() {
-	
-}
-
-void middleRightArrowSubtract() {
-	
-}
-
-void middleDownArrowSubtract() {
-	
-}
+int arrowCordX = arrow.getCordX();
+            int arrowCordY = arrow.getCordY();
+            for (int x = 0; x < ; x ++) {
+                if (switcher == 1) {
+                    currentGameBoard[][] ++;
+                } else {
+                    currentGameBoard[][] --;
+                }
+                arrowCordY ;
+                arrowCordX ;
+            }
 
 
 

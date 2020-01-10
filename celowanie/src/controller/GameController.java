@@ -8,8 +8,7 @@ import javafx.stage.Stage;
 import model.ModelBoard;
 import view.MainGUI;
 import view.buttons.MenuButton;
-import view.menuComponents.EndGamePanel;
-import view.menuComponents.HelpPanel;
+
 import java.io.File;
 import java.util.Arrays;
 
@@ -84,7 +83,6 @@ public class GameController {
                     }
                 }
                 getEditBoardButton().setIsClicked(true);
-                this.modelBoard.resetCurrentGameBoard();
 
             } else {
                 for (int x = 1; x < 6; x ++) {
@@ -100,6 +98,8 @@ public class GameController {
                 mainGUI.getTopPane().changeLabelText("Aiming Arrows");
                 getEditBoardButton().setText("Edit");
                 mainGUI.getGameBoard().setArrowsToDefault();
+                modelBoard.resetCurrentGameBoard();
+                System.out.println(Arrays.deepToString(modelBoard.getCurrentGameBoard()));
                 getEditBoardButton().setIsClicked(false);
             }
         });
@@ -138,31 +138,34 @@ public class GameController {
             if (arrow.getCordX() == 1) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 0) {
-                        arrow.setArrowDownRight(arrow);
+                        arrow.setArrowDownRight(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowDown(arrow);
+                        arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 0) {
-                        arrow.setArrowDownLeft(arrow);
+                        arrow.setArrowDownLeft(arrow, arrow.getClickCounter());
                     } else if (arrow.getClickCounter() == 1) {
-                        arrow.setArrowDown(arrow);
+                        arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 0) {
-                        arrow.setArrowDownLeft(arrow);
+                        arrow.setArrowDownLeft(arrow, arrow.getClickCounter());
                     } else if (arrow.getClickCounter() == 1) {
-                        arrow.setArrowDownRight(arrow);
+                        arrow.setArrowDownRight(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowDown(arrow);
+                        arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             }
         }
@@ -171,31 +174,34 @@ public class GameController {
             if (arrow.getCordX() == 1) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 4) {
-                        arrow.setArrowUpRight(arrow);
+                        arrow.setArrowUpRight(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowUp(arrow);
+                        arrow.setArrowUp(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else if (arrow.getCordX() == 5) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 3) {
-                        arrow.setArrowUp(arrow);
+                        arrow.setArrowUp(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowUpLeft(arrow);
+                        arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 4) {
-                        arrow.setArrowUpRight(arrow);
+                        arrow.setArrowUpRight(arrow, arrow.getClickCounter());
                     } else if (arrow.getClickCounter() == 5) {
-                        arrow.setArrowUpLeft(arrow);
+                        arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowUp(arrow);
+                        arrow.setArrowUp(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             }
         }
@@ -204,31 +210,34 @@ public class GameController {
             if (arrow.getCordY() == 1) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 7) {
-                        arrow.setArrowRight(arrow);
+                        arrow.setArrowRight(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowDownRight(arrow);
+                        arrow.setArrowDownRight(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 6) {
-                        arrow.setArrowUpRight(arrow);
+                        arrow.setArrowUpRight(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowRight(arrow);
+                        arrow.setArrowRight(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 6) {
-                        arrow.setArrowDownRight(arrow);
+                        arrow.setArrowDownRight(arrow, arrow.getClickCounter());
                     } else if (arrow.getClickCounter() == 7) {
-                        arrow.setArrowUpRight(arrow);
+                        arrow.setArrowUpRight(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowRight(arrow);
+                        arrow.setArrowRight(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             }
         }
@@ -237,31 +246,34 @@ public class GameController {
             if (arrow.getCordY() == 1) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 1) {
-                        arrow.setArrowLeft(arrow);
+                        arrow.setArrowLeft(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowDownLeft(arrow);
+                        arrow.setArrowDownLeft(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else if (arrow.getCordY() == 5) {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 3) {
-                        arrow.setArrowLeft(arrow);
+                        arrow.setArrowLeft(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowUpLeft(arrow);
+                        arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             } else {
                 arrow.setOnAction(e -> {
                     if (arrow.getClickCounter() == 2) {
-                        arrow.setArrowUpLeft(arrow);
+                        arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     } else if (arrow.getClickCounter() == 3) {
-                        arrow.setArrowDownLeft(arrow);
+                        arrow.setArrowDownLeft(arrow, arrow.getClickCounter());
                     } else {
-                        arrow.setArrowLeft(arrow);
+                        arrow.setArrowLeft(arrow, arrow.getClickCounter());
                     }
                     this.checkIfEnd();
+                    modelBoard.modifyGameBoardAfterMove(arrow, position);
                 });
             }
         }
