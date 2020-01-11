@@ -4,15 +4,14 @@ import components.abstracts.Element;
 import components.gameObjects.Arrow;
 import components.gameObjects.Block;
 import components.gameObjects.Cell;
+import controller.FileManager;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameGrid extends GridPane {
 
     private GridPane gameGrid;
+
     int[][] startGameBoard = {
             {4, 4, 4, 4, 4},
             {4, 4, 4, 4, 4},
@@ -133,6 +132,10 @@ public class GameGrid extends GridPane {
         }
     }
 
+    public void setGameGrid(GridPane gameGrid) {
+        this.gameGrid = gameGrid;
+    }
+
     public void setGameGridCellsValues(int[][] gameCellsLabels) {
         for(int x = 1; x < 6; x ++) {
             for(int y = 1; y < 6; y ++) {
@@ -152,4 +155,25 @@ public class GameGrid extends GridPane {
         return cellsValues;
     }
 
+    public int[] getArrowsClickCounters() {
+        int arrowValuesSelector = 0;
+        int[] arrowsValues = new int[20];
+        for (int i = 1; i < 6; i ++) {
+            arrowsValues [arrowValuesSelector] = this.getElementFromGameGrid(gameGrid, i,0).getClickCounter();
+            arrowValuesSelector ++;
+        }
+        for (int i = 5; i > 0; i --) {
+            arrowsValues [arrowValuesSelector] = this.getElementFromGameGrid(gameGrid, 6, i).getClickCounter();
+            arrowValuesSelector ++;
+        }
+        for (int i = 1; i < 6; i ++) {
+            arrowsValues [arrowValuesSelector] = this.getElementFromGameGrid(gameGrid, i, 6).getClickCounter();
+            arrowValuesSelector ++;
+        }
+        for (int i = 5; i > 0; i --) {
+            arrowsValues [arrowValuesSelector] = this.getElementFromGameGrid(gameGrid, 0, i).getClickCounter();
+            arrowValuesSelector ++;
+        }
+        return arrowsValues;
+    }
 }

@@ -3,7 +3,9 @@ package model;
 import components.abstracts.Position;
 import components.gameObjects.Arrow;
 
-public class ModelBoard {
+import java.io.Serializable;
+
+public class ModelBoard implements Serializable {
 
     int[][] defaultSolutionBoard  = {
             {3, 3, 6, 2, 3},
@@ -249,6 +251,10 @@ public class ModelBoard {
 
     public int[][] getCurrentSolutionBoard() {
         return currentSolutionBoard;
+    }
+
+    public void setCurrentGameBoard(int [][] currentGameBoard) {
+        this.currentGameBoard = currentGameBoard;
     }
 }
 

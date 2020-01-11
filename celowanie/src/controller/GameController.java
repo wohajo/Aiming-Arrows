@@ -11,17 +11,19 @@ import view.buttons.MenuButton;
 
 import java.io.File;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class GameController {
 
     private boolean isFirstLaunched;
     private MainGUI mainGUI;
     private ModelBoard modelBoard;
-    // private FileManager fileManager;
+    private FileManager fileManager;
 
     public GameController() {
 
         this.isFirstLaunched = true;
+        this.fileManager = new FileManager();
         this.mainGUI = new MainGUI();
         this.modelBoard = new ModelBoard();
 
@@ -60,6 +62,11 @@ public class GameController {
 
         mainGUI.getMenu().getExitGameButton().setOnAction(e -> {
             System.exit(0);
+        });
+
+        mainGUI.getMenu().getSaveFileButton().setOnAction(e -> {
+            fileManager.saveFile(modelBoard, mainGUI.getGameBoard().getArrowsClickCounters());
+            mainGUI.getTopPane().changeLabelText("Saved file!");
         });
 
         mainGUI.getMenu().getOpenFileButton().setOnAction(e -> {
@@ -298,8 +305,11 @@ public class GameController {
         if (this.modelBoard.checkIfGameEnd()) {
             System.out.println(this.modelBoard.checkIfGameEnd());
             this.mainGUI.changeMainView(mainGUI.getEndGamePanel());
-            this.mainGUI.getMenu().getChildren().remove(this.mainGUI.getMenu().getEditBoardButton());
         } else
             System.out.println(this.modelBoard.checkIfGameEnd());
+    }
+
+    public ModelBoard getModelBoard() {
+        return this.modelBoard;
     }
 }
