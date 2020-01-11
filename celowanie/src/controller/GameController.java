@@ -23,7 +23,7 @@ public class GameController {
 
         this.isFirstLaunched = true;
         this.mainGUI = new MainGUI();
-        this.modelBoard = new ModelBoard(7,7);
+        this.modelBoard = new ModelBoard();
 
         setArrowsClicks();
 
@@ -86,9 +86,7 @@ public class GameController {
                         cell.setOnAction(f -> {
                             cell.valueInc();
                             cell.setText(String.valueOf(cell.getValue()));
-                            // save changes to current board
-                            // changes are not saving, TO FIX
-                                this.modelBoard.setCurrentSolutionBoardCell(finalY - 1, finalX - 1, cell.getValue());
+                            this.modelBoard.setCurrentSolutionBoardCell(finalY - 1, finalX - 1, cell.getValue());
                         });
                     }
                 }
@@ -107,7 +105,7 @@ public class GameController {
                 }
                 mainGUI.getTopPane().changeLabelText("Aiming Arrows");
                 getEditBoardButton().setText("Edit");
-                mainGUI.getGameBoard().setArrowsToDefault();
+                mainGUI.getGameBoard().resetArrows();
                 modelBoard.resetCurrentGameBoard();
                 System.out.println(Arrays.deepToString(modelBoard.getCurrentGameBoard()));
                 getEditBoardButton().setIsClicked(false);
@@ -287,6 +285,13 @@ public class GameController {
                 });
             }
         }
+    }
+
+    public void loadNewGameBoardWithDefaultArrows(int[][] numbers) {
+        this.modelBoard.setCurrentSolutionBoard(numbers);
+        this.mainGUI.getGameBoard().setGameGridCellsValues(numbers);
+        this.modelBoard.resetCurrentGameBoard();
+        this.mainGUI.getGameBoard().resetArrows();
     }
 
     public void checkIfEnd() {

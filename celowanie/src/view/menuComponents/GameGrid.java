@@ -113,7 +113,7 @@ public class GameGrid extends GridPane {
         return null;
     }
 
-    public void setArrowsToDefault() {
+    public void resetArrows() {
         for (int p = 1; p < 6; p ++) {
             Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, p, 0);
             arrow.setArrowDown(arrow, 0);

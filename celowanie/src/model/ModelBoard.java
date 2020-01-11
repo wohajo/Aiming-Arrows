@@ -1,10 +1,9 @@
 package model;
 
-import components.abstracts.Board;
 import components.abstracts.Position;
 import components.gameObjects.Arrow;
 
-public class ModelBoard extends Board {
+public class ModelBoard {
 
     int[][] defaultSolutionBoard  = {
             {3, 3, 6, 2, 3},
@@ -35,10 +34,8 @@ public class ModelBoard extends Board {
             {4, 4, 4, 4, 4},
             {4, 4, 4, 4, 4}};
 
-    int[][] newSolutionBoard = new int[5][5];
+    public ModelBoard() {
 
-    public ModelBoard(int dimX, int dimY) {
-        super(dimX, dimY);
     }
 
     public void setCurrentSolutionBoardCell(int x, int y, int value) {
