@@ -145,6 +145,35 @@ public class GameGrid extends GridPane {
         }
     }
 
+    public void setArrowsClickCounters(int[] arrowsClickCounters) {
+        int arrowValuesSelector = 0;
+        for (int i = 1; i < 6; i ++) {
+            Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, i,0);
+            arrow.setClickCounter(arrowsClickCounters[arrowValuesSelector]);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrow.getClickCounter());
+            System.out.println(arrowsClickCounters[arrowValuesSelector]);
+            arrowValuesSelector ++;
+        }
+        for (int i = 5; i > 0; i --) {
+            Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, 6, i);
+            arrow.setClickCounter(arrowsClickCounters[arrowValuesSelector]);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrowsClickCounters[arrowValuesSelector]);
+            arrowValuesSelector ++;
+        }
+        for (int i = 1; i < 6; i ++) {
+            Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, i, 6);
+            arrow.setClickCounter(arrowsClickCounters[arrowValuesSelector]);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrowsClickCounters[arrowValuesSelector]);
+            arrowValuesSelector ++;
+        }
+        for (int i = 5; i > 0; i --) {
+            Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, 0, i);
+            arrow.setClickCounter(arrowsClickCounters[arrowValuesSelector]);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrowsClickCounters[arrowValuesSelector]);
+            arrowValuesSelector ++;
+        }
+    }
+
     public int[][] getGameGridCellsValues() {
         int[][] cellsValues = new int[5][5];
         for (int x = 1; x < 6; x ++) {

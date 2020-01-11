@@ -9,7 +9,7 @@ import model.ModelBoard;
 import view.MainGUI;
 import view.buttons.MenuButton;
 
-import java.io.File;
+import java.io.*;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
@@ -72,10 +72,35 @@ public class GameController {
         mainGUI.getMenu().getOpenFileButton().setOnAction(e -> {
             Stage stage = new Stage();
             FileChooser fileChooser = new FileChooser();
+            fileChooser.setInitialDirectory(new File(System.getProperty("user.home") + "/.aassaves"));
             File selectedFile = fileChooser.showOpenDialog(stage);
-            //Elements[][] newBoard = fileManager.prepareToLoad(selectedFile);
-            //mainGUI.changeMainView(mainGUI.getGameBoard().setGameGrid(newBoard))
+            String filePath = selectedFile.getAbsolutePath();
+            FileInputStream fileInputStream = null;
+            try {
+                fileInputStream = new FileInputStream(new File(filePath));
+            } catch (FileNotFoundException ex) {
+                ex.printStackTrace();
+            }
+            ObjectInputStream oi = null;
+            try {
+                oi = new ObjectInputStream(fileInputStream);
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
 
+            FileManager.GameFile savedFile = null;
+            try {
+                savedFile = (FileManager.GameFile) oi.readObject();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            } catch (ClassNotFoundException ex) {
+                ex.printStackTrace();
+            }
+
+            this.modelBoard.setCurrentGameBoard(savedFile.getModelBoardFromSave().getCurrentGameBoard());
+            this.modelBoard.setCurrentSolutionBoard(savedFile.getModelBoardFromSave().getCurrentSolutionBoard());
+            this.mainGUI.getGameBoard().setGameGridCellsValues(savedFile.getModelBoardFromSave().getCurrentSolutionBoard());
+            this.mainGUI.getGameBoard().setArrowsClickCounters(savedFile.getArrowsValuesFromSave());
         });
 
         this.getEditBoardButton().setOnAction(e -> {

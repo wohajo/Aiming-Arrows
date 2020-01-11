@@ -73,4 +73,33 @@ public class Arrow extends Element {
 		arrow.setPreviousClickcounter(clickCounter);
 		arrow.setClickCounter(7);
 	}
+
+	public void setArrowsAccordingToClickCounter(Arrow arrow, int arrowsClickCounter) {
+		switch (arrowsClickCounter) {
+			case 0:
+				arrow.setStyle("-fx-background-image: url(/rsc/0arrowDown.png)");
+				break;
+			case 1:
+				arrow.setStyle("-fx-background-image: url(/rsc/1arrowDownLeft.png)");
+				break;
+			case 2:
+				arrow.setStyle("-fx-background-image: url(/rsc/2arrowLeft.png)");
+				break;
+			case 3:
+				arrow.setStyle("-fx-background-image: url(/rsc/3arrowUpLeft.png)");
+				break;
+			case 4:
+				arrow.setStyle("-fx-background-image: url(/rsc/4arrowUp.png)");
+				break;
+			case 5:
+				arrow.setStyle("-fx-background-image: url(/rsc/5arrowUpRight.png)");
+				break;
+			case 6:
+				arrow.setStyle("-fx-background-image: url(/rsc/6arrowRight.png)");
+				break;
+			case 7:
+				arrow.setStyle("-fx-background-image: url(/rsc/7arrowDownRight.png)");
+				break;
+		}
+	}
 }

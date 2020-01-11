@@ -9,7 +9,6 @@ import java.util.Arrays;
 
 public class FileManager {
 
-    private GameController gameController;
     private String gameSavesPath;
 
     public FileManager() {
@@ -44,8 +43,6 @@ public class FileManager {
 
         private ModelBoard modelBoard;
         private int[] arrowsValues;
-        private int[][] currentGameBoard;
-        private int[][] currentSolutionBoard;
 
         public GameFile(ModelBoard modelBoard, int[] arrowsValues) {
 
@@ -54,8 +51,6 @@ public class FileManager {
             System.out.println(Arrays.deepToString(modelBoard.getCurrentSolutionBoard()));
             this.arrowsValues = arrowsValues;
             System.out.println(Arrays.toString(arrowsValues));
-
-
         }
 
         public ModelBoard getModelBoardFromSave() {
@@ -64,14 +59,6 @@ public class FileManager {
 
         public int[] getArrowsValuesFromSave() {
             return arrowsValues;
-        }
-
-        public int[][] getCurrentGameBoardFromSave() {
-            return currentGameBoard;
-        }
-
-        public int[][] getCurrentSolutionBoardFromSave() {
-            return currentSolutionBoard;
         }
     }
 }
