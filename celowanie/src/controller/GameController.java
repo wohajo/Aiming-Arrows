@@ -10,18 +10,23 @@ import view.MainGUI;
 import view.buttons.MenuButton;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class GameController {
 
+    private int historianListIterator = 1;
     private boolean isFirstLaunched;
+    private List<Historian> historianList;
     private MainGUI mainGUI;
     private ModelBoard modelBoard;
     private FileManager fileManager;
 
     public GameController() {
 
+        this.historianList = new ArrayList<>();
         this.isFirstLaunched = true;
         this.fileManager = new FileManager();
         this.mainGUI = new MainGUI();
@@ -38,41 +43,19 @@ public class GameController {
                 }
                 mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
                 mainGUI.getMenu().getStartGameButton().setText("Board");
-                mainGUI.getMenu().getHelpButton().setText("Help");
+                getHelpButton().setText("Help");
                 mainGUI.getTopPane().changeLabelToDefault();
-                mainGUI.getMenu().getHelpButton().setIsClicked(false);
+                getHelpButton().setIsClicked(false);
             } else {
                 mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
             }
-        });
-
-        mainGUI.getMenu().getHelpButton().setOnAction(e -> {
-            if(!mainGUI.getMenu().getHelpButton().getIsClicked()) {
-                mainGUI.getTopPane().changeLabelText("Rules");
-                mainGUI.getMenu().getHelpButton().setText("Back");
-                mainGUI.changeMainView(mainGUI.getHelpPanel());
-                mainGUI.getMenu().getHelpButton().setIsClicked(true);
-            } else {
-                mainGUI.getMenu().getHelpButton().setText("Help");
-                mainGUI.getTopPane().changeLabelToDefault();
-                mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
-                mainGUI.getMenu().getHelpButton().setIsClicked(false);
-            }
-        });
-
-        mainGUI.getMenu().getExitGameButton().setOnAction(e -> {
-            System.exit(0);
-        });
-
-        mainGUI.getMenu().getSaveFileButton().setOnAction(e -> {
-            fileManager.saveFile(modelBoard, mainGUI.getGameBoard().getArrowsClickCounters());
-            mainGUI.getTopPane().changeLabelText("Saved file!");
         });
 
         mainGUI.getMenu().getOpenFileButton().setOnAction(e -> {
             Stage stage = new Stage();
             FileChooser fileChooser = new FileChooser();
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home") + "/.aassaves"));
+            // fileChooser.getExtensionFilters();
             File selectedFile = fileChooser.showOpenDialog(stage);
             String filePath = selectedFile.getAbsolutePath();
             FileInputStream fileInputStream = null;
@@ -101,6 +84,11 @@ public class GameController {
             this.modelBoard.setCurrentSolutionBoard(savedFile.getModelBoardFromSave().getCurrentSolutionBoard());
             this.mainGUI.getGameBoard().setGameGridCellsValues(savedFile.getModelBoardFromSave().getCurrentSolutionBoard());
             this.mainGUI.getGameBoard().setArrowsClickCounters(savedFile.getArrowsValuesFromSave());
+        });
+
+        mainGUI.getMenu().getSaveFileButton().setOnAction(e -> {
+            fileManager.saveFile(modelBoard, mainGUI.getGameBoard().getArrowsClickCounters());
+            mainGUI.getTopPane().changeLabelText("Saved file!");
         });
 
         this.getEditBoardButton().setOnAction(e -> {
@@ -143,6 +131,64 @@ public class GameController {
                 getEditBoardButton().setIsClicked(false);
             }
         });
+
+        getForwardButton().setOnAction(e -> {
+            if (historianListIterator - 1 > historianList.size()) {
+                getForwardButton().setId("menuButtonInactive");
+                historianListIterator = historianList.size() - 1;
+            } else {
+                getForwardButton().setId("menuButton");
+                /*this.modelBoard.setCurrentGameBoard();
+                this.mainGUI.getGameBoard().setGameGridCellsValues();
+                this.mainGUI.getGameBoard().setArrowsClickCounters();*/
+                historianListIterator --;
+            }
+        });
+
+        mainGUI.getMenu().getBackButton().setOnAction(e -> {
+            if (historianListIterator < 0) {
+                mainGUI.getMenu().getBackButton().setId("menuButtonInactive");
+                historianListIterator = 0;
+            } else {
+                mainGUI.getMenu().getBackButton().setId("menuButton");
+                /*this.modelBoard.setCurrentGameBoard();
+                this.mainGUI.getGameBoard().setGameGridCellsValues();
+                this.mainGUI.getGameBoard().setArrowsClickCounters();*/
+                historianListIterator ++;
+            }
+        });
+
+        getHelpButton().setOnAction(e -> {
+            if (isFirstLaunched) {
+                mainGUI.getGameBoard().setGameGridCellsValues(modelBoard.getDefaultSolutionBoard());
+                modelBoard.setCurrentSolutionBoard(modelBoard.getDefaultSolutionBoard());
+                this.getStartButton().setText("Board");
+                isFirstLaunched = false;
+            }
+            if(!getHelpButton().getIsClicked()) {
+                mainGUI.getTopPane().changeLabelText("Rules");
+                getHelpButton().setText("Back");
+                mainGUI.changeMainView(mainGUI.getHelpPanel());
+                getHelpButton().setIsClicked(true);
+            } else {
+                getHelpButton().setText("Help");
+                mainGUI.getTopPane().changeLabelToDefault();
+                mainGUI.changeMainView(mainGUI.getGameBoard().getGameGrid());
+                getHelpButton().setIsClicked(false);
+            }
+        });
+
+        mainGUI.getMenu().getExitGameButton().setOnAction(e -> {
+            System.exit(0);
+        });
+    }
+
+    private MenuButton getHelpButton() {
+        return mainGUI.getMenu().getHelpButton();
+    }
+
+    private MenuButton getForwardButton() {
+        return mainGUI.getMenu().getForwardButton();
     }
 
     public MenuButton getStartButton() {
@@ -182,6 +228,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -192,6 +239,7 @@ public class GameController {
                     } else if (arrow.getClickCounter() == 1) {
                         arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -204,6 +252,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDown(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -218,6 +267,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUp(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -228,6 +278,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -240,6 +291,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUp(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -254,6 +306,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDownRight(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -264,6 +317,7 @@ public class GameController {
                     } else {
                         arrow.setArrowRight(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -276,6 +330,7 @@ public class GameController {
                     } else {
                         arrow.setArrowRight(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -290,6 +345,7 @@ public class GameController {
                     } else {
                         arrow.setArrowDownLeft(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -300,6 +356,7 @@ public class GameController {
                     } else {
                         arrow.setArrowUpLeft(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -312,6 +369,7 @@ public class GameController {
                     } else {
                         arrow.setArrowLeft(arrow, arrow.getClickCounter());
                     }
+                    addMoveHistory();
                     modelBoard.modifyGameBoardAfterMove(arrow, position);
                     this.checkIfEnd();
                 });
@@ -336,5 +394,9 @@ public class GameController {
 
     public ModelBoard getModelBoard() {
         return this.modelBoard;
+    }
+
+    public void addMoveHistory() {
+        this.historianList.add(new Historian(this.mainGUI.getGameBoard().getArrowsClickCounters(), this.modelBoard.getCurrentGameBoard()));
     }
 }

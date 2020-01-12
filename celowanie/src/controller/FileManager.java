@@ -31,14 +31,6 @@ public class FileManager {
         }
     }
 
-    public void loadFile(GameFile gameFile) {
-        /*List<Arrow> arrows = gameFile.getArrows();
-        ModelBoard modelBoard = gameFile.getModelBoardFromSave();
-        gameController.getMainGUI().getGameBoard().setGameGrid(gameGrid);
-        gameController.getModelBoard().setCurrentSolutionBoard(gameController.getMainGUI().getGameBoard().getGameGridCellsValues());
-        gameController.getModelBoard().setCurrentGameBoard(modelBoard.getCurrentGameBoard());*/
-    }
-
     public static class GameFile implements Serializable {
 
         private ModelBoard modelBoard;
