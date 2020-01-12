@@ -6,6 +6,7 @@ import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
+import java.util.List;
 
 public class FileManager {
 
@@ -16,10 +17,10 @@ public class FileManager {
         new File(gameSavesPath).mkdir();
     }
 
-    public void saveFile(ModelBoard modelBoard, int[] arrowsValues) {
+    public void saveFile(ModelBoard modelBoard, int[] arrowsValues, List<Historian> historianList) {
         LocalDateTime now = LocalDateTime.now();
         String fileName = "/" + DateTimeFormatter.ofPattern("dd-MM-yyyy-HHmmss").format(now) + ".aas";
-        GameFile gameFile = new GameFile(modelBoard, arrowsValues);
+        GameFile gameFile = new GameFile(modelBoard, arrowsValues, historianList);
         try {
             FileOutputStream fos = new FileOutputStream(gameSavesPath + fileName);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -35,14 +36,13 @@ public class FileManager {
 
         private ModelBoard modelBoard;
         private int[] arrowsValues;
+        private List<Historian> historianList;
 
-        public GameFile(ModelBoard modelBoard, int[] arrowsValues) {
+        public GameFile(ModelBoard modelBoard, int[] arrowsValues, List<Historian> historianList) {
 
+            this.historianList = historianList;
             this.modelBoard = modelBoard;
-            System.out.println(Arrays.deepToString(modelBoard.getCurrentGameBoard()));
-            System.out.println(Arrays.deepToString(modelBoard.getCurrentSolutionBoard()));
             this.arrowsValues = arrowsValues;
-            System.out.println(Arrays.toString(arrowsValues));
         }
 
         public ModelBoard getModelBoardFromSave() {
@@ -51,6 +51,10 @@ public class FileManager {
 
         public int[] getArrowsValuesFromSave() {
             return arrowsValues;
+        }
+
+        public List<Historian> getHistorianListFromSave() {
+            return historianList;
         }
     }
 }

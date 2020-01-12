@@ -61,27 +61,28 @@ public class ModelBoard implements Serializable {
     public void modifyGameBoardAfterMove(Arrow arrow, Position position) {
 
         if (position == Position.UP) {
-            addOrSubtractFromGameBoardForUpperArrows(arrow, arrow.getPreviousClickcounter(), -1);
+            addOrSubtractFromGameBoardForUpperArrows(arrow, arrow.getPreviousClickCounter(), -1);
             addOrSubtractFromGameBoardForUpperArrows(arrow, arrow.getClickCounter(), 1);
         }
 
         else if (position == Position.DOWN) {
-            addOrSubtractFromGameBoardForDownArrows(arrow, arrow.getPreviousClickcounter(), -1);
+            addOrSubtractFromGameBoardForDownArrows(arrow, arrow.getPreviousClickCounter(), -1);
             addOrSubtractFromGameBoardForDownArrows(arrow, arrow.getClickCounter(), 1);
         }
 
         else if (position == Position.LEFT) {
-            addOrSubtractFromGameBoardForLeftArrows(arrow, arrow.getPreviousClickcounter(), -1);
+            addOrSubtractFromGameBoardForLeftArrows(arrow, arrow.getPreviousClickCounter(), -1);
             addOrSubtractFromGameBoardForLeftArrows(arrow, arrow.getClickCounter(), 1);
         }
 
         else if (position == Position.RIGHT) {
-            addOrSubtractFromGameBoardForRightArrows(arrow, arrow.getPreviousClickcounter(), -1);
+            addOrSubtractFromGameBoardForRightArrows(arrow, arrow.getPreviousClickCounter(), -1);
             addOrSubtractFromGameBoardForRightArrows(arrow, arrow.getClickCounter(), 1);
         }
 
-        System.out.println("currentGameBoard" + java.util.Arrays.deepToString(currentGameBoard));
-        System.out.println("currentSolutionBoard" + java.util.Arrays.deepToString(currentSolutionBoard));
+        // Leaving it for later explaination
+        /*System.out.println("currentGameBoard" + java.util.Arrays.deepToString(currentGameBoard));
+        System.out.println("currentSolutionBoard" + java.util.Arrays.deepToString(currentSolutionBoard));*/
         checkIfGameEnd();
     }
 

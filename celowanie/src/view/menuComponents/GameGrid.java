@@ -32,7 +32,7 @@ public class GameGrid extends GridPane {
                         this.gameGrid.addRow(dimY, block);
 
                         block.setOnAction(e -> {
-                            System.out.println("X: " +  block.getCordX() + " Y: " +  block.getCordY());
+
                         });
 
                     } else {
@@ -44,7 +44,7 @@ public class GameGrid extends GridPane {
                             this.gameGrid.addRow(dimY, arrow);
 
                             arrow.setOnAction(e -> {
-                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
+
                             });
 
                         } else if (dimY == 0) {
@@ -55,7 +55,7 @@ public class GameGrid extends GridPane {
                             this.gameGrid.addRow(dimY, arrow);
 
                             arrow.setOnAction(e -> {
-                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
+
                             });
 
                         } else if (dimX == 6) {
@@ -66,7 +66,7 @@ public class GameGrid extends GridPane {
                             this.gameGrid.addRow(dimY, arrow);
 
                             arrow.setOnAction(e -> {
-                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
+
                             });
 
                         } else {
@@ -77,7 +77,7 @@ public class GameGrid extends GridPane {
                             this.gameGrid.addRow(dimY, arrow);
 
                             arrow.setOnAction(e -> {
-                                System.out.println("X: " +  arrow.getCordX() + " Y: " +  arrow.getCordY());
+
                             });
 
                         }
@@ -91,7 +91,7 @@ public class GameGrid extends GridPane {
                     this.gameGrid.addRow(dimY, cell);
 
                     cell.setOnAction(e -> {
-                        System.out.println("X: " +  cell.getCordX() + " Y: " +  cell.getCordY());
+
                     });
 
                 }
@@ -151,7 +151,6 @@ public class GameGrid extends GridPane {
             Arrow arrow = (Arrow) this.getElementFromGameGrid(gameGrid, i,0);
             arrow.setClickCounter(arrowsClickCounters[arrowValuesSelector]);
             arrow.setArrowsAccordingToClickCounter(arrow, arrow.getClickCounter());
-            System.out.println(arrowsClickCounters[arrowValuesSelector]);
             arrowValuesSelector ++;
         }
         for (int i = 5; i > 0; i --) {

@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public class GameController {
 
-    private int historianListIterator = 1;
+    private int historianListIterator;
     private boolean isFirstLaunched;
     private List<Historian> historianList;
     private MainGUI mainGUI;
@@ -26,6 +26,7 @@ public class GameController {
 
     public GameController() {
 
+        this.historianListIterator = 0;
         this.historianList = new ArrayList<>();
         this.isFirstLaunched = true;
         this.fileManager = new FileManager();
@@ -55,13 +56,20 @@ public class GameController {
             Stage stage = new Stage();
             FileChooser fileChooser = new FileChooser();
             fileChooser.setInitialDirectory(new File(System.getProperty("user.home") + "/.aassaves"));
-            // fileChooser.getExtensionFilters();
+
+            FileChooser.ExtensionFilter extFilter =
+                    new FileChooser.ExtensionFilter("Aiming Arrows save files (*.aas)", "*.aas");
+            fileChooser.getExtensionFilters().add(extFilter);
+
             File selectedFile = fileChooser.showOpenDialog(stage);
             String filePath = selectedFile.getAbsolutePath();
             FileInputStream fileInputStream = null;
             try {
                 fileInputStream = new FileInputStream(new File(filePath));
-            } catch (FileNotFoundException ex) {
+            } catch (NullPointerException ex) {
+                System.out.println("File not selected error");
+            }
+            catch (FileNotFoundException ex) {
                 ex.printStackTrace();
             }
             ObjectInputStream oi = null;
@@ -84,10 +92,12 @@ public class GameController {
             this.modelBoard.setCurrentSolutionBoard(savedFile.getModelBoardFromSave().getCurrentSolutionBoard());
             this.mainGUI.getGameBoard().setGameGridCellsValues(savedFile.getModelBoardFromSave().getCurrentSolutionBoard());
             this.mainGUI.getGameBoard().setArrowsClickCounters(savedFile.getArrowsValuesFromSave());
+            this.setHistorianList(savedFile.getHistorianListFromSave());
+            this.historianListIterator = savedFile.getHistorianListFromSave().size();
         });
 
         mainGUI.getMenu().getSaveFileButton().setOnAction(e -> {
-            fileManager.saveFile(modelBoard, mainGUI.getGameBoard().getArrowsClickCounters());
+            fileManager.saveFile(modelBoard, mainGUI.getGameBoard().getArrowsClickCounters(), historianList);
             mainGUI.getTopPane().changeLabelText("Saved file!");
         });
 
@@ -127,34 +137,37 @@ public class GameController {
                 getEditBoardButton().setText("Edit");
                 mainGUI.getGameBoard().resetArrows();
                 modelBoard.resetCurrentGameBoard();
-                System.out.println(Arrays.deepToString(modelBoard.getCurrentGameBoard()));
                 getEditBoardButton().setIsClicked(false);
             }
         });
 
         getForwardButton().setOnAction(e -> {
-            if (historianListIterator - 1 > historianList.size()) {
-                getForwardButton().setId("menuButtonInactive");
+            historianListIterator ++;
+            if (historianList.size() == 0) {
+            } else if (historianListIterator > historianList.size() - 1) {
                 historianListIterator = historianList.size() - 1;
             } else {
                 getForwardButton().setId("menuButton");
-                /*this.modelBoard.setCurrentGameBoard();
-                this.mainGUI.getGameBoard().setGameGridCellsValues();
-                this.mainGUI.getGameBoard().setArrowsClickCounters();*/
-                historianListIterator --;
+                this.modelBoard.setCurrentGameBoard(this.historianList.get(historianListIterator).getCurrentGameBoard());
+                this.mainGUI.getGameBoard().setArrowsClickCounters(this.historianList.get(historianListIterator).getArrowClickCounters());
+
+                setArrowsAfterChange();
             }
         });
 
         mainGUI.getMenu().getBackButton().setOnAction(e -> {
-            if (historianListIterator < 0) {
-                mainGUI.getMenu().getBackButton().setId("menuButtonInactive");
+            historianListIterator --;
+
+            if (historianList.size() == 0) {
+            } else if (historianListIterator < 0) {
                 historianListIterator = 0;
+                setArrowsAfterChange();
             } else {
                 mainGUI.getMenu().getBackButton().setId("menuButton");
-                /*this.modelBoard.setCurrentGameBoard();
-                this.mainGUI.getGameBoard().setGameGridCellsValues();
-                this.mainGUI.getGameBoard().setArrowsClickCounters();*/
-                historianListIterator ++;
+                this.modelBoard.setCurrentGameBoard(this.historianList.get(historianListIterator).getCurrentGameBoard());
+                this.mainGUI.getGameBoard().setArrowsClickCounters(this.historianList.get(historianListIterator).getArrowClickCounters());
+
+                setArrowsAfterChange();
             }
         });
 
@@ -183,11 +196,31 @@ public class GameController {
         });
     }
 
-    private MenuButton getHelpButton() {
+    public void setArrowsAfterChange() {
+        for (int p = 1; p < 6; p ++) {
+            Arrow arrow = (Arrow) getButtonFromBoard(0, p);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrow.getClickCounter());
+        }
+        for (int q = 1; q < 6; q ++) {
+            Arrow arrow = (Arrow) getButtonFromBoard(q, 6);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrow.getClickCounter());
+        }
+        for (int r = 1; r < 6; r ++) {
+            Arrow arrow = (Arrow) getButtonFromBoard(0, r);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrow.getClickCounter());
+
+        }
+        for (int s = 1; s < 6; s ++) {
+            Arrow arrow = (Arrow) getButtonFromBoard(6, s);
+            arrow.setArrowsAccordingToClickCounter(arrow, arrow.getClickCounter());
+        }
+    }
+
+    public MenuButton getHelpButton() {
         return mainGUI.getMenu().getHelpButton();
     }
 
-    private MenuButton getForwardButton() {
+    public MenuButton getForwardButton() {
         return mainGUI.getMenu().getForwardButton();
     }
 
@@ -377,26 +410,23 @@ public class GameController {
         }
     }
 
-    public void loadNewGameBoardWithDefaultArrows(int[][] numbers) {
-        this.modelBoard.setCurrentSolutionBoard(numbers);
-        this.mainGUI.getGameBoard().setGameGridCellsValues(numbers);
-        this.modelBoard.resetCurrentGameBoard();
-        this.mainGUI.getGameBoard().resetArrows();
-    }
-
     public void checkIfEnd() {
         if (this.modelBoard.checkIfGameEnd()) {
-            System.out.println(this.modelBoard.checkIfGameEnd());
             this.mainGUI.changeMainView(mainGUI.getEndGamePanel());
-        } else
-            System.out.println(this.modelBoard.checkIfGameEnd());
-    }
-
-    public ModelBoard getModelBoard() {
-        return this.modelBoard;
+        }
     }
 
     public void addMoveHistory() {
         this.historianList.add(new Historian(this.mainGUI.getGameBoard().getArrowsClickCounters(), this.modelBoard.getCurrentGameBoard()));
+        try {
+            historianList.subList(historianListIterator + 1, historianList.size()).clear();
+        } catch (ArrayIndexOutOfBoundsException ex) {
+
+        }
+        this.historianListIterator = this.historianList.size();
+    }
+
+    public void setHistorianList(List<Historian> historianList) {
+        this.historianList = historianList;
     }
 }
